@@ -1,0 +1,35 @@
+
+<div class="container">
+<div class="four wide column center aligned votes">
+    <div class='ui statistic'>
+      <div class="value">
+        {{ article.data.votes }}
+      </div>
+      <div class="label">
+      Likes
+      </div>
+    </div>
+  </div>
+
+  <div class ="twelve wide column">
+    <a class="ui larger header" (click)=getPost(article.Id)>
+      {{ article.data.title }}
+    </a>
+    <div class="meta">{{ article.data.description }}</div>
+    <ul class="ui big horizontal list">
+      <li class="item">
+        <a href="#" (click)="voteUp(article.id)">
+          <i class="arrow up icon"></i>
+          upvote
+        </a>
+      </li>
+      <li class="item">
+        <a href="#" (click)="voteDown(article.id)">
+          <i class="arrow down icon"></i>
+          downvote
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+  

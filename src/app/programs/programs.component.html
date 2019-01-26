@@ -1,0 +1,40 @@
+<div>
+  <section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/hero_bg_1_b.jpg);"
+    data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 probootstrap-intro-text">
+          <h1 data-animate-effect="fadeIn">Programs</h1>
+          <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
+            <h2>Coming Soon...</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main>
+
+    <section id="next-section" class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 probootstrap-relative">
+            <h2 class="probootstrap-heading mt0 mb50">Programs (For Beginners)</h2>
+          </div>
+        </div>
+        <div class="row">
+          <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+            <div class="item" *ngFor="let image of myCarouselImages;let i = index">
+              <div class="thumbnail-image">
+                <img src={{image}} class="img-responsive img-rounded">
+                <h3>Dumbbell Squat</h3>
+                <p>Sets: 3, Reps: 8-10, Rest: 30 sec.</p>
+                <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>

@@ -1,0 +1,41 @@
+<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/img_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 probootstrap-intro-text">
+        <h1 data-animate-effect="fadeIn">ADMIN</h1>
+        <div class="probootstrap-subtitle probootstrap-animate" data-animate-effect="fadeIn">
+          <h2>Alla Vasylyga</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+<div class="container">
+  <h3>Add Article</h3>
+  <div class="form-group">
+      <label for="name">Title</label>
+      <input type="text" class="form-control" id="title"
+             required
+            required [(ngModel)]="article.title" name="title">
+    </div>
+    
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input type="text"  class="form-control" id="date"
+            required [(ngModel)]="article.date" name="date">
+    </div>
+    
+    <div class="form-group">
+      <label for="power">Description</label>
+      <textarea rows="10" class="form-control" id="description" required  [(ngModel)]="article.description" name="description"></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="addArticle(article)">New Article</button>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <h3>Program Service</h3>
+</div>
+</section>

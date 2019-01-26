@@ -1,0 +1,92 @@
+<div>
+  <section class="probootstrap-intro" style="background-image: url(../../assets/img/home.jpg);"
+    data-stellar-background-ratio="0.5">
+    <div class="home">
+      <div class="row">
+        <div class="col-md-7 probootstrap-intro-text">
+          <h1 data-animate-effect="fadeIn"><span>Alla</span>Vasylyga</h1>
+          <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
+            <h2>Personal Trainer</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span class="probootstrap-animate"><a class="probootstrap-scroll-down js-next" href="#next-section">Scroll down <i
+          class="icon-chevron-down"></i></a></span>
+  </section>
+  <!-- END: section -->
+  <main>
+    <section id="next-section" class="probootstrap-section">
+      
+      <div class="container2">
+
+        <div class="row probootstrap-gutter60 mb50">
+          <div class="col-md-6">
+            <figure><img src="../../assets/img/aboutMe2.jpg" class="img-responsive img-border img-width"></figure>
+          </div>
+          <div class="col-md-6">
+            <h2 class="probootstrap-heading">About Me</h2>
+            <p>My name is Alla Vasylyga and I am an ACE Certified Personal Trainer and Nutrition Specialist with more than 10 years of experience
+               in the field, WBFF Pro Fitness Model, and just a person who loves to help others! My mission is to help you be a BETTER YOU: healthier, 
+               stronger, fitter, happier. I want you to feel comfortable in your own body, love yourself more and enjoy every day. Remember, you work 
+               out and eat healthy because you love your body not because you don’t like it. Everything starts with YOU, your mindset and positive 
+               thinking. I will give you the right tools, teach how to use them and the rest  depends on you! Let’s do it! Click on the link here to 
+               go to my Fitness questionnaire to find out your fitness level, and set your goals! (here should log in)
+                <br><b>Strong Body – Strong Mind!</b><br>
+                Online training comimg soon! Email me at <a href = "mailto: allavasylyga@gmail.com">allavasylyga@gmail.com</a> to register.
+                </p>
+          </div>
+        </div>
+
+        <div class="row probootstrap-gutter60 mb50">
+            
+            <div class="col-md-6">
+              <h2 class="probootstrap-heading">My Vision</h2>
+              <p>I believe that with support and right knowledge you can reach any goals regardless age, gender, genetics, metabolism or experience. 
+                That’s why I created a program “Educated Client – Successful Client” and invite you to be part of “Stronger Together” community  where 
+                goals are:
+              </p>
+                <ol>
+                  <li>
+                    Education for better results, not random and controversial information from the internet that might hurt your metabolism and 
+                    diminish your believe in achieving your goals, but from scientific sources (ACE, ACSM, NASM, US FDA etc.).
+                  </li>
+                  <li>
+                    Help you start a heathy lifestyle routine of training and eating, not temporary changes which bring temporary results.
+                  </li>
+                  <li>
+                    Create a community of healthy and active individuals with the same goals to communicate, support, and motivate each other.
+                  </li>
+                  <li>
+                    Earn points and win prizes!
+                  </li>
+                </ol>
+                <p>
+                  I will be your best friend and teacher. I will take your win as my win, and your results as my results. Let me guide you in your fitness journey and you will discover your best self!
+                  </p>
+            </div>
+            <div class="col-md-6">
+                <figure><img src="../../assets/img/my-vision.jpg" class="img-responsive img-border img-width"></figure>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-12 probootstrap-relative">
+                <h2 class="probootstrap-heading mt0 mb50">YouTube <span class="fa fa-youtube-play text-danger"></span></h2>
+              </div>
+            </div>
+            <div class="row">
+                <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+                 <div class="item" *ngFor="let image of mySlideImages;">
+                   <div class="thumbnail-image">
+                      <iframe width="336" height="244" [src]=image frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                   </div>
+                 </div>
+                </owl-carousel>
+              </div>
+
+      </div>
+    </section>
+
+  </main>
+</div>

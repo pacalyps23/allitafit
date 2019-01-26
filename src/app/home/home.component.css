@@ -1,0 +1,23 @@
+.probootstrap-animate {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .probootstrap-intro .probootstrap-subtitle {
+    max-width: 700px;
+  }
+
+  .thumbnail-image {
+    padding: 10px;
+}
+
+.img-width {
+  width: 500px;
+}
+
+li{
+  font-style: italic;
+}
+ol {
+  font-weight: bold;
+}
