@@ -16,7 +16,11 @@ export class AppComponent {
     @Inject(APP_ID) private appId: string
   ) {}
 
-  onActivate(event: any) {
+  login(){
+    
+  }
+  
+  ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
       let scrollToTop = window.setInterval(() => {
         let pos = window.pageYOffset;
@@ -27,13 +31,6 @@ export class AppComponent {
         }
       }, 16);
     }
-  }
-
-  login(){
-    
-  }
-  
-  ngOnInit() {
   }
 
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Article } from './article.model'
-import { BlogComponent } from '../blog/blog.component';
+import { ArticleService } from '../service/article-service.service';
 
 @Component({
   selector: 'article',
@@ -12,11 +12,7 @@ export class ArticleComponent implements OnInit {
 @HostBinding('attr.class') cscClass = 'row';
 @Input() article: any;
 
-postsCol: AngularFirestoreCollection<Article>;
-articles: any;
-
-  constructor(private afs: AngularFirestore, private blogComp: BlogComponent) {
-
+  constructor(private afs: AngularFirestore) {
    }
 
 voteUp(postId){

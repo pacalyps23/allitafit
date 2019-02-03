@@ -1,4 +1,5 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/img_1.jpg);" data-stellar-background-ratio="0.5">
+<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/img_1.jpg);"
+  data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row">
       <div class="col-md-7 probootstrap-intro-text">
@@ -11,31 +12,85 @@
   </div>
 </section>
 <section>
-<div class="container">
-  <h3>Add Article</h3>
-  <div class="form-group">
+  <div class="container">
+    <h3>Add Blog</h3>
+
+    <div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)" [class.hovering]="isHovering">
+        <h3>AngularFire Drop Zone</h3>
+  
+        <div class="file">
+          <label class="file-label">
+  
+  
+            <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+  
+  
+            <span class="file-cta">
+              <span class="file-icon">
+                <i class="fa fa-upload"></i>
+              </span>
+              <span class="file-label">
+                or choose a file…
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+  
+      <div *ngIf="percentage | async as pct">
+  
+        <progress class="progress is-info" [value]="pct" max="100">
+        </progress>
+  
+        {{ pct | number }}%
+  
+      </div>
+ 
+
+    <div class="form-group">
       <label for="name">Title</label>
-      <input type="text" class="form-control" id="title"
-             required
-            required [(ngModel)]="article.title" name="title">
+      <input type="text" class="form-control" id="title" required required [(ngModel)]="article.title" name="title">
     </div>
-    
+
     <div class="form-group">
       <label for="date">Date</label>
-      <input type="text"  class="form-control" id="date"
-            required [(ngModel)]="article.date" name="date">
+      <input type="text" class="form-control" id="date" required [(ngModel)]="article.date" name="date">
     </div>
     
     <div class="form-group">
-      <label for="power">Description</label>
-      <textarea rows="10" class="form-control" id="description" required  [(ngModel)]="article.description" name="description"></textarea>
+        <label for="fileUrl">Document URL</label>
+        <input type="text" class="form-control" id="fileUrl" required [(ngModel)]="article.fileUrl" name="fileUrl">
+      </div>
+
+      <div class="form-group">
+          <label for="thumbnailUrl">Thumbnail URL</label>
+          <input type="text" class="form-control" id="thumbnailUrl" required [(ngModel)]="article.thumbnailUrl" name="thumbnailUrl">
+        </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="5" class="form-control" id="description" required [(ngModel)]="article.description" name="description"></textarea>
     </div>
-    <button type="button" class="btn btn-primary" (click)="addArticle(article)">New Article</button>
-</div>
+    <button type="button" class="btn btn-primary" (click)="addArticle(article)">Add Article</button>
+  </div>
+  
+
 </section>
 
 <section>
-<div class="container">
-  <h3>Program Service</h3>
-</div>
+  <div class="container">
+    <h3>Delete Blog</h3>
+    <table>
+      <tr>
+        <th class="header">Title</th>
+        <th class="spacing">Action</th>
+      </tr>
+      <tr *ngFor="let article of articles">
+        <td>{{article.data.title}}</td>
+        <td><button class="btn btn-danger" (click)="deleteArticle(article.id)">Delete</button></td>
+      </tr>
+    </table>
+  </div>
+</section>
+<section class="aboveFoooter">
 </section>

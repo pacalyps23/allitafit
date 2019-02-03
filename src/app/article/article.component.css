@@ -1,0 +1,9 @@
+.eye {
+    color: #96c7f5;
+}
+
+.meta{
+    height:60px;
+    line-height:20px; /* Height / no. of lines to display */
+    overflow:hidden;
+}
