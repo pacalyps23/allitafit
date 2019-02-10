@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article } from '../article/article.model';
 import { ArticleService } from '../service/article-service.service';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  private article = new Article(null, null, null, null, null);
+  public article = new Article(null, null, null, null, null);
   articles: any;
   // Main task 
   task: AngularFireUploadTask;

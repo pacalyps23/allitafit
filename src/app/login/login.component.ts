@@ -34,6 +34,13 @@ export class LoginComponent implements OnInit {
       .catch((err) => console.log(err));
     }
 
+    signInWithEmail(){
+      this.authService.signInRegular('a', 'b').
+      then((res) => {
+          this.router.navigate(['home'])
+      }).catch((err)=>console.log(err));
+    }
+
 
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { AuthService } from './service/auth.service';
 
 
 @Component({
@@ -10,27 +10,26 @@ import { isPlatformBrowser } from '@angular/common';
 })
 export class AppComponent {
   title = 'app';
+  private isLogged;
+  private isAdmin;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    @Inject(APP_ID) private appId: string
+    @Inject(APP_ID) private appId: string,
+    private auth: AuthService,
   ) {}
 
-  login(){
-    
-  }
+  
   
   ngOnInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      let scrollToTop = window.setInterval(() => {
-        let pos = window.pageYOffset;
-        if (pos > 0) {
-          window.scrollTo(0, pos - 50); // how far to scroll on each step
-        } else {
-          window.clearInterval(scrollToTop);
-        }
-      }, 16);
+    this.isLogged = this.auth.isLoggedIn();
+    if(this.isLogged){
+      this.isAdmin = this.auth.isAdmin();
     }
+  }
+
+  logout(){
+    this.auth.logout();
   }
 
 }

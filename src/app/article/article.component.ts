@@ -1,7 +1,6 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Article } from './article.model'
-import { ArticleService } from '../service/article-service.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+
 
 @Component({
   selector: 'article',

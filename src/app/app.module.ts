@@ -7,9 +7,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProgramsComponent } from './programs/programs.component';
-import { RoutingModule } from './routing/routing.module';
 import { OwlModule } from 'ngx-owl-carousel';
 import { GalleryComponent } from './gallery/gallery.component';
+import { NgxGalleryModule } from 'ngx-gallery';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
@@ -26,9 +26,11 @@ import { ArticleComponent } from './article/article.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AuthService } from './service/auth.service';
+import { AuthGuard } from './service/authguard.service';
 import { ArticleService } from './service/article-service.service';
+import { GalleryService } from './service/gallery.service';
 import { DropZoneDirective } from './drop-zone.directive';
-
+import { Routes, RouterModule } from '@angular/router';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAOV571ckUC5u6awW96SanIHesAmhnb6D4",
@@ -38,6 +40,18 @@ var firebaseConfig = {
       storageBucket: "allitafit.appspot.com",
       messagingSenderId: "208732271165"
 };
+
+const appRoutes: Routes = [
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'programs', component: ProgramsComponent },
+  { path: 'gallery', component: GalleryComponent },
+  { path: 'testimonials', component: TestimonialsComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'admin', component: AdminComponent },
+];
 
 
 
@@ -58,7 +72,6 @@ var firebaseConfig = {
     
   ],
   imports: [
-    RoutingModule,
     BrowserModule,
     OwlModule,
     NgbModule,
@@ -67,15 +80,17 @@ var firebaseConfig = {
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes),
     ReactiveFormsModule,
     PdfViewerModule,
     AngularFireStorageModule,
     HttpClientModule,
+    NgxGalleryModule
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AuthService, ArticleService,
+    AuthService, ArticleService, AuthGuard, GalleryService,
   ],
   bootstrap: [AppComponent]
 })

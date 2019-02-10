@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../article/article.model';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { ArticleService } from '../service/article-service.service';

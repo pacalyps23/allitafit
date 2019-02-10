@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
 export class AuthService {
   private user: Observable<firebase.User>;
   public userDetails: firebase.User = null;
+  public admin: boolean = false;
 
 
-  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) { 
-    this.user = _firebaseAuth.authState;
+  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
+    this.user = firebaseAuth.authState;
 
     this.user.subscribe(
       (user) => {
@@ -21,40 +22,55 @@ export class AuthService {
         else {
           this.userDetails = null;
         }
-      }
-    );
-}
-
-signInWithFacebook() {
-  return this._firebaseAuth.auth.signInWithPopup(
-    new firebase.auth.FacebookAuthProvider()
-  )
-}
-
-signInWithGoogle() {
-  return this._firebaseAuth.auth.signInWithPopup(
-    new firebase.auth.GoogleAuthProvider()
-  )
-}
-
-signInRegular(email, password) {
-  const credential = firebase.auth.EmailAuthProvider.credential( email, password );
-
-  return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
-}
-
-
-isLoggedIn() {
-if (this.userDetails == null ) {
-    return false;
-  } else {
-    return true;
+      });
   }
-}
+
+  signInWithFacebook() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.FacebookAuthProvider()
+    )
+  }
+
+  signInWithGoogle() {
+    return this.firebaseAuth.auth.signInWithPopup(
+      new firebase.auth.GoogleAuthProvider()
+    )
+  }
+
+  signInRegular(email, password) {
+    const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+
+    return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
+  }
 
 
-logout() {
-  this._firebaseAuth.auth.signOut()
-  .then((res) => this.router.navigate(['/']));
-}
+  isLoggedIn() {
+    if (this.userDetails == null) {
+      console.log("nog logged in");
+      return false;
+    } else {
+      console.log(this.userDetails.email);
+      this.isAdmin();
+      return true;
+    }
+  }
+
+
+  logout() {
+    console.log("logging out");
+    this.firebaseAuth.auth.signOut()
+      .then((res) => this.router.navigate(['/']));
+  }
+
+  isAdmin() {
+    if (this.userDetails.email == "allavasylyga@gmail.com" ||
+      this.userDetails.email == "pacalyps85@gmail.com") {
+        console.log("is admin");
+      return true;
+    }
+    console.log("not admin");
+    return false;
+
+  }
+
 }
