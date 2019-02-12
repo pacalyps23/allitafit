@@ -6,4 +6,19 @@
     height:60px;
     line-height:20px; /* Height / no. of lines to display */
     overflow:hidden;
+    font-family: monospace;
+    color: dimgray;
+}
+
+td{
+    padding-right: 15px;
+}
+
+.tr-title{
+    font-size: 50px;
+    font-family: serif;
+}
+
+.top{
+    vertical-align: top;
 }

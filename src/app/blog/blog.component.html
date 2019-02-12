@@ -18,7 +18,10 @@
     </article>
   </div>
   <div class="blog-spacing">
-    <h3 class="centerTitle">{{ (post | async)?.title }}</h3>
+    <div class="container">
+      <h3 class="centerTitle">{{ (post | async)?.title }}</h3>
+    </div>
+    
     <pdf-viewer [src]="pdfSrc" [render-text]="true" [zoom]="1.6"></pdf-viewer>
   </div>
 </section>

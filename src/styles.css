@@ -9,6 +9,8 @@
  /* You can add global styles to this file, and also import other style files */
 @import '../semantic/dist/semantic.min.css';
 
+
+
 .ui.menu .item img.logo {
     margin-right: 1.5em;
 }
@@ -141,7 +143,7 @@ div.alla {
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: visible;
   font-size: 1em;
 }
 
@@ -270,168 +272,7 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
   }
 }
 
-.probootstrap-nav {
-  margin-left: 60px;
-  text-align: left;
-  float: left;
-}
 
-.probootstrap-mobile-menu-active .probootstrap-nav {
-  text-align: left;
-  position: fixed;
-  display: block !important;
-  overflow-y: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding-right: 0;
-  z-index: 1100;
-  height: 100vh;
-  width: 300px;
-  background: #000000;
-  padding: 40px;
-  -webkit-transition: .3s all ease-out;
-  transition: .3s all ease-out;
-  -webkit-transform: translateX(300px);
-  transform: translateX(300px);
-}
-
-.probootstrap-mobile-menu-active .probootstrap-nav .extra-text {
-  display: block;
-  float: left;
-  clear: both;
-  margin-top: 30px;
-  color: #ffffff;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-nav .extra-text .social-buttons {
-  padding: 0;
-  margin: 0 0 20px 0;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-nav .extra-text .social-buttons li {
-  display: inline-block;
-  *display: inline;
-  zoom: 1;
-  padding: 0;
-  margin: 0;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-nav .extra-text .social-buttons li a {
-  color: #ffffff;
-  padding: 10px;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-nav .extra-text .social-buttons li:first-child a {
-  padding-left: 0;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-nav .extra-text h5 {
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.probootstrap-mobile-menu-active.show .probootstrap-nav {
-  -webkit-transform: translateX(0px);
-  transform: translateX(0px);
-}
-
-.probootstrap-main-nav {
-  margin: 0;
-  padding: 0;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav {
-  float: left;
-  margin-top: 40px;
-  width: 100%;
-}
-
-.probootstrap-main-nav li {
-  margin: 0;
-  padding: 0 10px;
-  list-style: none;
-  display: inline;
-  font-size: 18px;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li {
-  margin-bottom: 10px;
-  display: block;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.probootstrap-main-nav li a {
-  text-transform: uppercase;
-  padding: 10px 0;
-  color: #ffffff;
-  font-size: 14px;
-  letter-spacing: .2em;
-  border-bottom: 2px solid transparent;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li a {
-  margin-bottom: 10px;
-  padding: 5px 0;
-  display: block;
-}
-
-.probootstrap-main-nav li a:hover {
-  border-bottom: 2px solid #ffffff;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li a {
-  border-bottom: none !important;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li a:hover {
-  color: #96c7f5;
-}
-
-.probootstrap-main-nav li.probootstrap-cta {
-  margin-left: 20px;
-}
-
-.probootstrap-main-nav li.probootstrap-cta a {
-  border: 2px solid #ffffff;
-  padding-right: 20px;
-  padding-left: 20px;
-  border-radius: 4px;
-}
-
-.probootstrap-main-nav li.probootstrap-cta a:hover {
-  background: #ffffff;
-  color: #96c7f5;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li.probootstrap-cta {
-  margin-left: 0px;
-  margin-top: 20px;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li.probootstrap-cta a {
-  padding-top: 2px;
-  padding-bottom: 2px;
-}
-
-.probootstrap-main-nav li.active a {
-  border-bottom: 2px solid #ffffff;
-}
-
-.probootstrap-main-nav li.active a:hover {
-  border-bottom: 2px solid #ffffff;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li.active a {
-  border-bottom: none !important;
-  color: #96c7f5;
-}
-
-.probootstrap-mobile-menu-active .probootstrap-main-nav li {
-  display: block;
-}
 
 .probootstrap-header-social {
   position: absolute;
@@ -2514,7 +2355,6 @@ a.hover-reverse:hover, a.hover-reverse:focus, a.hover-reverse:active {
 
 
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
 }
 
@@ -2547,6 +2387,12 @@ body {
 
   .container2 {
     max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container3 {
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
   }

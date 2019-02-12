@@ -7,3 +7,15 @@
 .centerTitle {
     text-align: center;
 }
+
+h3 {
+    color: dimgray;
+    font-family: "Great Vibes", cursive;
+    font-size: 75px;
+    line-height: 100px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 4px -7px 12px #9878dc;
+}
