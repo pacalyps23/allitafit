@@ -11,21 +11,25 @@ import { AuthService } from './service/auth.service';
 export class AppComponent {
   title = 'app';
   private isLogged;
-  private isAdmin;
+  private email;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     @Inject(APP_ID) private appId: string,
     private auth: AuthService,
-  ) {}
+  ) {
+    if(auth.getUser() == null || auth.getUser() == undefined){
+        this.email = ""
+    }else{
+      this.email = auth.getUser().email;
+    }
+  }
 
   
   
   ngOnInit() {
     this.isLogged = this.auth.isLoggedIn();
-    if(this.isLogged){
-      this.isAdmin = this.auth.isAdmin();
-    }
+    
   }
 
   logout(){

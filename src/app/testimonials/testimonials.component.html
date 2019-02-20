@@ -11,3 +11,25 @@
   </div>
   <span class="probootstrap-animate"><a class="probootstrap-scroll-down js-next" href="#next-section">Scroll down <i class="icon-chevron-down"></i></a></span>
 </section>
+
+<section id="next-section" class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 probootstrap-relative">
+          <h2 class="probootstrap-heading mt0 mb50">Programs (For Beginners)</h2>
+        </div>
+      </div>
+      <div class="row">
+        <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+          <div class="item" *ngFor="let image of myCarouselImages;let i = index">
+            <div class="thumbnail-image">
+              <img src={{image}} class="img-responsive img-rounded">
+              <h3>Dumbbell Squat</h3>
+              <p>Sets: 3, Reps: 8-10, Rest: 30 sec.</p>
+              <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+            </div>
+          </div>
+        </owl-carousel>
+      </div>
+    </div>
+  </section>

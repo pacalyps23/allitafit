@@ -42,15 +42,15 @@ var firebaseConfig = {
 };
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent,  },
   { path: 'programs', component: ProgramsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent,},
+  { path: 'admin', component: AdminComponent},
 ];
 
 

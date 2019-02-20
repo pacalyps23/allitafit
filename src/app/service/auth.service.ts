@@ -3,74 +3,72 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth'
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
+import { User } from 'firebase';
 
 @Injectable()
 export class AuthService {
-  private user: Observable<firebase.User>;
-  public userDetails: firebase.User = null;
-  public admin: boolean = false;
+  private user: User;
+  private admin: boolean = false;
 
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
-    this.user = firebaseAuth.authState;
-
-    this.user.subscribe(
-      (user) => {
-        if (user) {
-          this.userDetails = user;
-        }
-        else {
-          this.userDetails = null;
-        }
-      });
+    firebaseAuth.authState.subscribe(user => {
+      if(user){
+        this.user = user;
+        localStorage.setItem('user', JSON.stringify(this.user));
+      }else{
+        localStorage.setItem('user', null);
+      }
+    });
   }
 
-  signInWithFacebook() {
-    return this.firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.FacebookAuthProvider()
-    )
-  }
-
-  signInWithGoogle() {
-    return this.firebaseAuth.auth.signInWithPopup(
-      new firebase.auth.GoogleAuthProvider()
-    )
-  }
-
-  signInRegular(email, password) {
-    const credential = firebase.auth.EmailAuthProvider.credential(email, password);
-
-    return this.firebaseAuth.auth.signInWithEmailAndPassword(email, password)
-  }
-
-
-  isLoggedIn() {
-    if (this.userDetails == null) {
-      console.log("nog logged in");
-      return false;
-    } else {
-      console.log(this.userDetails.email);
-      this.isAdmin();
-      return true;
+  async signInWithFacebook() {
+    try{
+       await this.firebaseAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+       this.router.navigate(['/home']);
+    }catch(e){
+      alert("Login Error: " + e.message);
     }
+   
   }
 
-
-  logout() {
-    console.log("logging out");
-    this.firebaseAuth.auth.signOut()
-      .then((res) => this.router.navigate(['/']));
-  }
-
-  isAdmin() {
-    if (this.userDetails.email == "allavasylyga@gmail.com" ||
-      this.userDetails.email == "pacalyps85@gmail.com") {
-        console.log("is admin");
-      return true;
+  async signInWithGoogle() {
+    try{
+      await this.firebaseAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+      this.router.navigate(['/home']);
+    }catch(e){
+      alert("Login Error: " + e.message);
     }
-    console.log("not admin");
-    return false;
+    
+  }
 
+  async signInRegular(email, password) {
+    try {
+      const credential = firebase.auth.EmailAuthProvider.credential(email, password);
+      await this.firebaseAuth.auth.signInWithEmailAndPassword(email, password);
+      this.router.navigate(['/home'])
+    }catch(e){
+      alert("Login Error: " + e.message);
+    }
+    
+  }
+
+
+   isLoggedIn() {
+    const  user  =  JSON.parse(localStorage.getItem('user'));
+    return  user  !==  null;
+  }
+
+  getUser(){
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
+
+  async logout() {
+    console.log("Logging off");
+    await this.firebaseAuth.auth.signOut();
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
   }
 
 }

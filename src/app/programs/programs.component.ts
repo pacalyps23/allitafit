@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './programs.component.html',
   styleUrls: ['./programs.component.css']
 })
+
 export class ProgramsComponent implements OnInit {
 mySlideImages = [1,2,3].map((i)=> `https://picsum.photos/640/480?image=${i}`);
 myCarouselImages =[];

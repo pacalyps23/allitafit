@@ -5,4 +5,12 @@
 .log{
     padding-right: 100px;
 }
+
+.email{
+    padding-left: 200px;
+    font-weight: 100;
+    color: aliceblue;
+    text-shadow: 4px -7px 7px black;
+
+}
   

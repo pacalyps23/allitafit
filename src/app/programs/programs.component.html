@@ -14,27 +14,55 @@
   </section>
   <main>
 
-    <section id="next-section" class="probootstrap-section">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12 probootstrap-relative">
-            <h2 class="probootstrap-heading mt0 mb50">Programs (For Beginners)</h2>
-          </div>
-        </div>
-        <div class="row">
-          <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
-            <div class="item" *ngFor="let image of myCarouselImages;let i = index">
-              <div class="thumbnail-image">
-                <img src={{image}} class="img-responsive img-rounded">
-                <h3>Dumbbell Squat</h3>
-                <p>Sets: 3, Reps: 8-10, Rest: 30 sec.</p>
-                <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+          <div class="card-deck mb-3 text-center">
+              <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal">Bronze</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>10 users included</li>
+                    <li>2 GB of storage</li>
+                    <li>Email support</li>
+                    <li>Help center access</li>
+                  </ul>
+                  <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+                </div>
+              </div>
+              <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal">Silver</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>20 users included</li>
+                    <li>10 GB of storage</li>
+                    <li>Priority email support</li>
+                    <li>Help center access</li>
+                  </ul>
+                  <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
+                </div>
+              </div>
+              <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal">Gold</h4>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
+                  <ul class="list-unstyled mt-3 mb-4">
+                    <li>30 users included</li>
+                    <li>15 GB of storage</li>
+                    <li>Phone and email support</li>
+                    <li>Help center access</li>
+                  </ul>
+                  <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                </div>
               </div>
             </div>
-          </owl-carousel>
-        </div>
       </div>
-    </section>
 
   </main>
 </div>
