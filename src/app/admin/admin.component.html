@@ -45,6 +45,12 @@
         {{ pct | number }}%
   
       </div>
+
+      <div class="container" *ngIf="downloadURL">
+        <h3>Url:</h3>
+        {{downloadURL}}
+      </div>
+
  
 
     <div class="form-group">

@@ -20,7 +20,7 @@ export class AdminComponent implements OnInit {
   percentage: Observable<number>;
   snapshot: Observable<any>;
   // Download URL
-  downloadURL: Observable<string>;
+  downloadURL: string = null;
   // State for dropzone CSS toggling
   isHovering: boolean;
 
@@ -68,10 +68,13 @@ export class AdminComponent implements OnInit {
 
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
-    this.snapshot   = this.task.snapshotChanges()
+ 
 
     // The file's download URL
-    this.downloadURL = ref.getDownloadURL();
+    ref.getDownloadURL().subscribe(url => {
+      console.log(url);
+      this.downloadURL = url;
+    });
   }
 
   // Determines if the upload task is active
