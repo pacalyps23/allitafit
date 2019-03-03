@@ -1,3 +1,7 @@
 .thumbnail-image {
     padding: 10px;
 }
+
+.row {
+    display: block;
+}

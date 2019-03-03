@@ -1,39 +1,34 @@
 import { Injectable, OnInit, Input } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
-import { Observable } from 'rxjs/Observable';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+
 import { Image } from '../gallery/image.model';
 
 
 @Injectable()
 export class GalleryService implements OnInit {
   galleryRef: AngularFirestoreCollection<Image>;
-  images: any;
-  post: Observable<any>;
+  public wbffImages = new Array();
   
 
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private storage: AngularFireStorage) {
     this.galleryRef = this.db.collection<Image>('gallery');
 
   }
 
   ngOnInit() {
-    this.images = this.getImages();
-    console.log(this.images);
   }
 
-  getImages(): any {
-    this.galleryRef = this.db.collection('gallery');
-    return this.galleryRef.snapshotChanges()
-      .map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Image;
-          const id = a.payload.doc.id;
-          return { id, data };
-        });
+  getWbffImages() {
+    for (var i = 3; i > 0; i--) {
+      var reference = this.storage.ref(`gallery/WBFF/wbff${i}.JPG`);
+      reference.getDownloadURL().subscribe(data => {
+        console.log(data);
+        this.wbffImages.push(data);
       });
-
+    }
+    return this.wbffImages;
   }
-
 
 }

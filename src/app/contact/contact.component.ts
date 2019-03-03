@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Contact } from './contact';
+import { ContactService } from '../service/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -7,15 +8,20 @@ import { Contact } from './contact';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-  private contact = new Contact("", "", "", "", "");
+  public contact = new Contact("", "", "", "", "");
 
-  constructor() { }
+  constructor(private messenger:ContactService) { }
 
   addContact(message: Contact){
-    console.log(message);
+    this.messenger.addItem(message);
+    this.reset();
   }
 
   ngOnInit() {
+  }
+
+  reset(){
+    this.contact = new Contact("", "", "","","");
   }
 
 }

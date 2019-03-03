@@ -16,10 +16,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 probootstrap-relative">
-          <h2 class="probootstrap-heading mt0 mb50">Programs (For Beginners)</h2>
+          <h2 class="probootstrap-heading mt0 mb50">Coming Soon...</h2>
         </div>
       </div>
-      <div class="row">
+      <div *ngIf="show" class="row">
         <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
           <div class="item" *ngFor="let image of myCarouselImages;let i = index">
             <div class="thumbnail-image">

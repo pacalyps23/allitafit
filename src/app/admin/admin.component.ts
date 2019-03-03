@@ -23,22 +23,24 @@ export class AdminComponent implements OnInit {
   downloadURL: string = null;
   // State for dropzone CSS toggling
   isHovering: boolean;
+  public downloadURLs = new Array();
 
-  constructor(public articleService: ArticleService, private db: AngularFirestore, private storage: AngularFireStorage){
+  constructor(public articleService: ArticleService, private db: AngularFirestore, private storage: AngularFireStorage) {
 
   }
 
   ngOnInit() {
     this.articleService.getArticles().subscribe(data => {
-        this.articles = data;
-      });
+      this.articles = data;
+    });
+    this.getImages();
   }
 
-  addArticle(article: any){
+  addArticle(article: any) {
     this.articleService.addItem(article);
   }
 
-  deleteArticle(postId){
+  deleteArticle(postId) {
     this.articleService.deleteItem(postId);
   }
 
@@ -53,7 +55,7 @@ export class AdminComponent implements OnInit {
     // Client-side validation example
     let one = file.type.split('/')[0];
     let two = file.type.split('/')[1];
-    if (!(one !== 'image' || two !== "pdf")) { 
+    if (!(one !== 'image' || two !== "pdf")) {
       console.error('unsupported file type :( ')
       return;
     }
@@ -68,11 +70,10 @@ export class AdminComponent implements OnInit {
 
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
- 
+
 
     // The file's download URL
     ref.getDownloadURL().subscribe(url => {
-      console.log(url);
       this.downloadURL = url;
     });
   }
@@ -80,5 +81,14 @@ export class AdminComponent implements OnInit {
   // Determines if the upload task is active
   isActive(snapshot) {
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
+  }
+
+  getImages() {
+    for (var i = 3; i > 0; i--) {
+      var reference = this.storage.ref(`gallery/WBFF/wbff${i}.JPG`);
+      reference.getDownloadURL().subscribe(data => {
+        console.log(data);
+      })
+    }
   }
 }

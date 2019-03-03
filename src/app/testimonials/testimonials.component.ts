@@ -11,6 +11,7 @@ export class TestimonialsComponent implements OnInit {
   myCarouselImages = [];
   mySlideOptions = { items: 3, dots: false, nav: true };
   myCarouselOptions = { items: 3, dots: true, nav: true };
+  public show=false;
 
   constructor() {
     this.myCarouselImages.push("../../assets/img/dumbTricep.jpg");

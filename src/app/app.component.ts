@@ -10,8 +10,8 @@ import { AuthService } from './service/auth.service';
 })
 export class AppComponent {
   title = 'app';
-  private isLogged;
-  private email;
+  public isLogged;
+  public email;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,

@@ -6,7 +6,7 @@
 
     <nav class="probootstrap-nav hidden-xs">
       <ul class="probootstrap-main-nav">
-        <li *ngIf="!isLogged"><a routerLink="/login">Login</a></li>
+        <li *ngIf="isLogged"><a routerLink="/login">Login</a></li>
         <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
         <li><a routerLink="/blog">Blog</a></li>
         <li><a routerLink="/gallery">Gallery</a></li>

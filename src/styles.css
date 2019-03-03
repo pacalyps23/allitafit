@@ -15,6 +15,10 @@
     margin-right: 1.5em;
 }
 
+.toast-bootstrap-compatibility-fix {
+  opacity:1;
+}
+
 form.ui.segment.form {
   background-color: whitesmoke;
   margin-top: 2em;

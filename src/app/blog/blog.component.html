@@ -14,14 +14,21 @@
 
 <section>
   <div class='ui grid posts'>
-    <article *ngFor="let article of articles | async" [article]="article" (click)="getPost(article.id)">
+    <article id="top" [ngx-scroll-to]="'#destination'" *ngFor="let article of articles | async" [article]="article"
+      (click)="getPost(article.id)">
     </article>
   </div>
   <div class="blog-spacing">
-    <div class="container">
+    <div id="destination" class="container">
       <h3 class="centerTitle">{{ (post | async)?.title }}</h3>
     </div>
-    
-    <pdf-viewer [src]="pdfSrc" [render-text]="true" [zoom]="1.6"></pdf-viewer>
+
+    <pdf-viewer [src]="pdfSrc" [show-all]="false" [zoom]="1.6"
+      (after-load-complete)="afterLoadComplete($event)">
+    </pdf-viewer>
+    <div class="centerTitle">
+      <button [ngx-scroll-to]="'#top'" class="btn btn-primary">Return to Blogs</button>
+    </div>
   </div>
+
 </section>
