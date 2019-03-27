@@ -1,35 +1,164 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/Carl-Kerridge-Photography-Alla-Studio2-30.jpg);" data-stellar-background-ratio="0.5">
+<section class="probootstrap-intro probootstrap-intro-inner"
+  style="background-image: url(../../assets/img/Carl-Kerridge-Photography-Alla-Studio2-30.jpg);"
+  data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row">
       <div class="col-md-7 probootstrap-intro-text">
-        <h1 data-animate-effect="fadeIn">Testimonials</h1>
+        <h1 data-animate-effect="fadeIn" class="myTitle">Testimonials</h1>
         <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
           <h2>Alla Vasylyga</h2>
         </div>
       </div>
     </div>
   </div>
-  <span class="probootstrap-animate"><a class="probootstrap-scroll-down js-next" href="#next-section">Scroll down <i class="icon-chevron-down"></i></a></span>
+  <span class="probootstrap-animate"><a class="probootstrap-scroll-down js-next" href="#next-section">Scroll down <i
+        class="icon-chevron-down"></i></a></span>
 </section>
 
-<section id="next-section" class="probootstrap-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 probootstrap-relative">
-          <h2 class="probootstrap-heading mt0 mb50">Coming Soon...</h2>
-        </div>
+<section id="next-section" class="probootstrap-section back1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 probootstrap-relative">
+        <h2 class="probootstrap-heading mt0 mb50">Stronger Together</h2>
       </div>
-      <div *ngIf="show" class="row">
-        <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
-          <div class="item" *ngFor="let image of myCarouselImages;let i = index">
-            <div class="thumbnail-image">
+    </div>
+
+    <div class="row rowProp">
+      <div class="testi">
+        <h2 class="myh2">Ama</h2>
+        <p class="pIndent">Welcome Ama! She is 61 years old, and just accomplished 15 months of training!!! Wow! She got
+          stronger,happier, and healthier! Love her very much and very proud of her!</p>
+      </div>
+      <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+         
+        <div class="item" *ngFor="let image of amaPics">
+          <div class="thumbnail-image">
+            <div *ngIf="isValid(image)">
               <img src={{image}} class="img-responsive img-rounded">
-              <h3>Dumbbell Squat</h3>
-              <p>Sets: 3, Reps: 8-10, Rest: 30 sec.</p>
-              <p>She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+            </div>
+            <div *ngIf="!isValid(image)">
+                <iframe width="484" height="322" [src]="image" frameborder="0" allow="accelerometer; 
+                autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </owl-carousel>
+    </div>
+
+    <div class="row rowProp">
+      <div class="testi">
+        <h2 class="myh2">Chet</h2>
+        <p class="pIndent">Everyone please welcome Chet! He was in the military for 12 years, and when I met him first he was already 12 month  out of  service.
+          If you have spent years following a military work schedule, deployments and early morning group physical exercises, a relaxed lifestyle can be a welcome change. 
+          The transition period from active duty to civilian life can be both exciting and stressful.However, one change that isn’t wanted is a substantial weight gain, 
+          which many veterans experience following their separation from service. According to the Department of Veterans Affairs (VA), 78% of veterans are either overweight or obese.
+          In 6 month of training with me Chet regain his mobility and strength, also he started yoga classes and improved flexibility and balance. Chet put 110% in every workout, 
+          and with a good muscle background body responded immediately! We saw progress in 4 month already! Very proud of you and honored to work with you!</p>
+        </div>
+      <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+        <div class="item" *ngFor="let image of chetPics">
+          <div class="thumbnail-image">
+            <div *ngIf="isValid(image)">
+              <img src={{image}} class="img-responsive img-rounded">
+            </div>
+            <div *ngIf="!isValid(image)">
+                <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </owl-carousel>
+    </div>
+
+    <div class="row rowProp">
+      <div class="testi">
+        <h2 class="myh2">Kiki</h2>
+        <p class="pIndent">Kiki's goal was to be in the best shape in her life by her birthday...But she didn't stop! She keep crushing her goals, 
+          setting new goals and besides 2-3 times a week training with me she does soul cycling, yoga, and HIIT classes! This girl is a fire!</p>
+      </div>
+      <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+        <div class="item" *ngFor="let image of kikiPics">
+          <div class="thumbnail-image">
+              <div *ngIf="isValid(image)">
+                  <img src={{image}} class="img-responsive img-rounded">
+              </div>
+              <div *ngIf="!isValid(image)">
+                    <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                    autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+          </div>
+        </div>
+      </owl-carousel>
+    </div>
+
+    <div class="row rowProp">
+        <div class="testi">
+          <h2 class="myh2">Bruce</h2>
+          <p class="pIndent">Bruce started training with me a few month ago and already have great results! Besides weight loss, his flexibility 
+            and mobility improved, and (I say that guys are very lucky to be more athletic by nature) his strength increasing every training and 
+            I am very happy to be able increase workout intensity more and more! Also, he and Naomi got to the final round of "Body Fat% Loss" 
+            competition and final measurements are on April 14th, let's see who will get 1st place!</p>
+        </div>
+        <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+          <div class="item" *ngFor="let image of brucePics">
+            <div class="thumbnail-image">
+                <div *ngIf="isValid(image)">
+                    <img src={{image}} class="img-responsive img-rounded">
+                </div>
+                <div *ngIf="!isValid(image)">
+                      <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                      autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
             </div>
           </div>
         </owl-carousel>
       </div>
-    </div>
-  </section>
+
+      <div class="row rowProp">
+          <div class="testi">
+            <h2 class="myh2">Naomi</h2>
+            <p class="pIndent">KNaomi made this testimonial when she was working out 7 month with me and now we are celebrating 18 months of training! 
+                Keep it up! During this year you won “Fat loss%” 2018 competition, got in a third round of “Body fat% loss” competition 2019 with Bruce (wish you “good luck!”), 
+                celebrate with our team “Stronger Together” Thanksgiving, Secret Santa and Valentines! There is no limit for perfection, and the secret is in consistency, 
+                discipline and knowledge. You inspired many, I wish you the best luck in reaching more goals and I will be there for you!</p>
+          </div>
+          <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+            <div class="item" *ngFor="let image of naomiPics">
+              <div class="thumbnail-image">
+                  <div *ngIf="isValid(image)">
+                      <img src={{image}} class="img-responsive img-rounded">
+                  </div>
+                  <div *ngIf="!isValid(image)">
+                        <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                        autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  </div>
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+
+        <div class="row rowProp">
+            <div class="testi">
+              <h2 class="myh2">Amber</h2>
+              <p class="pIndent"><b>"</b>My experience training with Alla was amazing! Alla is not only the best trainer, but also a wonderful person. My experience training with Alla was fun and a 
+                great learning experience. Alla created a fun competition between myself and 4 other women, where after a month of training whomever lost the most weight and inches and gained 
+                muscle won a cash prize. With the physical training and nutritional knowledge I received from Alla, I was able to win that competition. It was nice to win that prize, but 
+                what was even better than winning was the knowledge and experience I got while achieving my goals. Thank You Alla for all of your help!"</p>
+            </div>
+            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of amberPics">
+                <div class="thumbnail-image">
+                    <div *ngIf="isValid(image)">
+                        <img src={{image}} class="img-responsive img-rounded">
+                    </div>
+                    <div *ngIf="!isValid(image)">
+                          <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </owl-carousel>
+          </div>
+
+  </div>
+</section>

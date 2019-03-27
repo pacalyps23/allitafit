@@ -19,3 +19,8 @@ h3 {
     text-align: center;
     text-shadow: 4px -7px 12px #9878dc;
 }
+
+.blogTitle{
+    color: chocolate;
+    text-shadow: 5px 7px black;
+}

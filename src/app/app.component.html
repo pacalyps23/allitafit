@@ -13,7 +13,7 @@
         <li><a routerLink="/programs">Programs</a></li>
         <li><a routerLink="/testimonials">Testimonials</a>
         <li><a routerLink="/contact">Contact</a></li>
-        <li><a routerLink="/admin">Admin</a></li>
+        <li *ngIf="isAdmin"><a routerLink="/admin">Admin</a></li>
         <li class="email">{{email}}</li>
       </ul>
       <ul class="probootstrap-header-social hidden-xs">

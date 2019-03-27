@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding, Input } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ArticleService } from '../service/article-service.service';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 export class ArticleComponent implements OnInit {
 @HostBinding('attr.class') cscClass = 'row';
 @Input() article: any;
+
 
   constructor(private afs: AngularFirestore) {
    }

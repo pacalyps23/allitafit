@@ -21,3 +21,11 @@ li{
 ol {
   font-weight: bold;
 }
+
+.myTitle{
+  text-shadow: 4px 4px #c1c7c7;
+}
+
+.row{
+  display: block !important;
+}

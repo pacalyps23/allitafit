@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { ArticleService } from '../service/article-service.service';
-import { docChanges } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-blog',

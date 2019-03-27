@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DomSanitizer} from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-testimonials',
@@ -7,20 +9,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestimonialsComponent implements OnInit {
 
-  mySlideImages = [1, 2, 3].map((i) => `https://picsum.photos/640/480?image=${i}`);
-  myCarouselImages = [];
+  amaPics = [];
+  chetPics = [];
+  kikiPics = [];
+  brucePics = [];
+  naomiPics = [];
+  amberPics = [];
+
   mySlideOptions = { items: 3, dots: false, nav: true };
-  myCarouselOptions = { items: 3, dots: true, nav: true };
+  public myCarouselOptions = { items: 3, dots: true, nav: true };
   public show=false;
 
-  constructor() {
-    this.myCarouselImages.push("../../assets/img/dumbTricep.jpg");
-    this.myCarouselImages.push("../../assets/img/plank.jpg");
-    this.myCarouselImages.push("../../assets/img/cableLat.jpg");
-    this.myCarouselImages.push("../../assets/img/dumbCurl.jpg");
+  constructor(private sanitizer: DomSanitizer) {
+
+    this.amaPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/UeAjr2p25po"));
+    this.chetPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/b-SVOkghCb4"));
+    this.kikiPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/OrM-fcOhc-8"));
+    this.brucePics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/dwDLnmQMWKI"));
+    this.naomiPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/f5PQAwLApm4"));
+
+    for(var i = 1; i < 3; i++){
+      this.amaPics.push(`../../assets/img/ama/ama${i}.jpg`);
+    }
+    for(var i = 1; i < 4; i++){
+      this.chetPics.push(`../../assets/img/chet/chet${i}.jpg`);
+    }
+    for(var i = 1; i < 6; i++){
+      this.kikiPics.push(`../../assets/img/kiki/kiki${i}.jpg`);
+    }
+    for(var i = 1; i < 5; i++){
+      this.brucePics.push(`../../assets/img/bruce/bruce${i}.jpg`);
+    }
+
+    for(var i = 1; i < 5; i++){
+      this.naomiPics.push(`../../assets/img/naomi/naomi${i}.jpg`);
+    }
+
+    for(var i = 1; i < 3; i++){
+      this.amberPics.push(`../../assets/img/amber/amber${i}.jpg`);
+    }
+
   }
 
   ngOnInit() {
+  }
+
+  isValid(image) {
+    if(typeof image === 'string'){
+      return true;
+    }
+    return false;
   }
 
 }

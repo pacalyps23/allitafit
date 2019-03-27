@@ -10,7 +10,7 @@
     color: dimgray;
 }
 
-td{
+.thumb{
     padding-right: 15px;
 }
 
@@ -21,4 +21,9 @@ td{
 
 .top{
     vertical-align: top;
+}
+
+.readMore{
+    padding: 10px;
+    border-radius: 5px;
 }

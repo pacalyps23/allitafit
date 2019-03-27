@@ -52,5 +52,4 @@ export class ArticleService implements OnInit {
     this.db.collection('article').doc(postId).delete().then(_ => alert("Delete Article"));
   }
 
-
 }

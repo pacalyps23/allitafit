@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'app';
   public isLogged;
   public email;
+  public isAdmin=false;
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,

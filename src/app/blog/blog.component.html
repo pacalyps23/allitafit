@@ -1,9 +1,9 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/img_1.jpg);"
+<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/blog.jpg);"
   data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row">
       <div class="col-md-7 probootstrap-intro-text">
-        <h1 data-animate-effect="fadeIn">Blog</h1>
+        <h1 data-animate-effect="fadeIn" class="blogTitle">Blog</h1>
         <div class="probootstrap-subtitle probootstrap-animate" data-animate-effect="fadeIn">
           <h2>Alla Vasylyga</h2>
         </div>
@@ -14,7 +14,7 @@
 
 <section>
   <div class='ui grid posts'>
-    <article id="top" [ngx-scroll-to]="'#destination'" *ngFor="let article of articles | async" [article]="article"
+    <article *ngFor="let article of articles | async" [article]="article"
       (click)="getPost(article.id)">
     </article>
   </div>

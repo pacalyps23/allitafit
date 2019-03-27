@@ -5,3 +5,14 @@
 .mainClass{
     background-color: darkgray;
 }
+
+.galleryTitle{
+    color: firebrick;
+    text-shadow: 5px 5px black;
+}
+
+.myTitle{
+    text-align: center;
+    color: palevioletred;
+    text-shadow: 2px 2px black;
+}

@@ -3,5 +3,42 @@
 }
 
 .row {
-    display: block;
+    display: block;  
+}
+
+.rowProp{
+    border: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.pIndent{
+    text-indent: 15px;
+}
+
+.container {
+    max-width: 1514px;
+}
+
+.back1{
+    background-color: aliceblue;
+}
+
+.myTitle{
+    text-shadow: 4px 4px dimgray;
+}
+
+.testi{
+    padding: 20px;
+}
+
+.myh2{
+    text-align: center;
+}
+
+.img-rounded{
+    border: 2px black;
+    border-style: solid;
 }

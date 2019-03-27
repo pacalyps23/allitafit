@@ -1,9 +1,9 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(assets/img/img_7.jpg);"
+<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(assets/img/photography-banner.png);"
   data-stellar-background-ratio="0.5">
   <div class="container">
     <div class="row">
       <div class="col-md-7 probootstrap-intro-text">
-        <h1 data-animate-effect="fadeIn">Gallery</h1>
+        <h1 data-animate-effect="fadeIn" class="galleryTitle">Gallery</h1>
         <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
           <h2>Alla Vasylyga</h2>
         </div>
@@ -12,21 +12,21 @@
   </div>
 </section>
 <main class="mainClass">
-  <tabs>
-    <tab tabTitle="WBFF">
+    <div>
       <section id="next-section" class="probootstrap-section">
         <div class="container">
+          <h2 class="myTitle">WBFF</h2>
           <ngx-gallery [options]="galleryOptions" [images]="wbffGalleryImages"></ngx-gallery>
         </div>
       </section>
-    </tab>
-    <tab tabTitle="Fitness">
+    </div>
+    <div>
         <section id="next-section" class="probootstrap-section">
             <div class="container">
+              <h2 class="myTitle">FITNESS</h2>
               <ngx-gallery [options]="galleryOptions" [images]="fitGalleryImages"></ngx-gallery>
             </div>
           </section>
-    </tab>
-  </tabs>
+        </div>>
 
 </main>

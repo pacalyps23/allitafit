@@ -3,7 +3,7 @@
   <div>
     <table>
       <tr>
-        <td>
+        <td class="thumb">
           <img class="thumbnail" [src]="article.data.thumbnailUrl" width="400" height="275">
         </td>
         <td class="top">
@@ -15,6 +15,9 @@
           </tr>
           <tr>
             <div class="meta">{{ article.data.description }}</div>
+          </tr>
+          <tr>
+            <button class="btn-success readMore" id="top" [ngx-scroll-to]="'#destination'">Read More</button>
           </tr>
         </td>
         <td>
@@ -30,22 +33,17 @@
                 </div>
               </div>
           </tr>
-          <tr>
-              <ul class="ui big horizontal list">
-                  <li class="item">
+          <tr style="text-align:center;">
+                  <td>
                     <a href="#" (click)="voteUp(article.id)">
-                      <i class="arrow up icon"></i>
+                      <button><i class="arrow up icon"></i></button>
                     </a>
-                  </li>
-                  <li class="item">
                     <a href="#" (click)="voteDown(article.id)">
-                      <i class="arrow down icon"></i>
+                      <button><i class="arrow down icon"></i></button>
                     </a>
-                  </li>
-                </ul>
+                  </td>
           </tr>
-            
-        </td>
+          
       </tr>
     </table>
     
