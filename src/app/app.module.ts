@@ -34,7 +34,7 @@ import { DropZoneDirective } from './drop-zone.directive';
 import { Routes, RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { TabModule } from 'angular-tabs-component';
-
+import { CardioComponent } from './cardio/cardio.component';
 
 
 var firebaseConfig = {
@@ -53,6 +53,7 @@ const appRoutes: Routes = [
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'cardio', component: CardioComponent},
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent,},
   { path: 'admin', component: AdminComponent},
@@ -74,6 +75,7 @@ const appRoutes: Routes = [
     TestimonialsComponent,
     ArticleComponent,
     DropZoneDirective,
+    CardioComponent,
     
   ],
   imports: [

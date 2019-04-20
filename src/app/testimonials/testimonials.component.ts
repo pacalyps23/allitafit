@@ -15,7 +15,12 @@ export class TestimonialsComponent implements OnInit {
   brucePics = [];
   naomiPics = [];
   amberPics = [];
-
+  mettyPics = [];
+  indiaPics = [];
+  pavPics = [];
+  simonePics = [];
+  tracyPics = [];
+   
   mySlideOptions = { items: 3, dots: false, nav: true };
   public myCarouselOptions = { items: 3, dots: true, nav: true };
   public show=false;
@@ -27,6 +32,8 @@ export class TestimonialsComponent implements OnInit {
     this.kikiPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/OrM-fcOhc-8"));
     this.brucePics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/dwDLnmQMWKI"));
     this.naomiPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/f5PQAwLApm4"));
+    this.mettyPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/VPM-dzrEx4E"));
+    this.indiaPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/qQ0bSwyVFgE"));
 
     for(var i = 1; i < 3; i++){
       this.amaPics.push(`../../assets/img/ama/ama${i}.jpg`);
@@ -48,6 +55,28 @@ export class TestimonialsComponent implements OnInit {
     for(var i = 1; i < 3; i++){
       this.amberPics.push(`../../assets/img/amber/amber${i}.jpg`);
     }
+
+    for(var i = 1; i < 3; i++){
+      this.mettyPics.push(`../../assets/img/metty/metty${i}.jpg`);
+    }
+
+    for(var i = 1; i < 4; i++){
+      this.indiaPics.push(`../../assets/img/india/india${i}.jpg`);
+    }
+
+    for(var i = 1; i < 5; i++){
+      this.pavPics.push(`../../assets/img/pav/pav${i}.jpg`);
+    }
+
+    for(var i = 1; i < 5; i++){
+      this.simonePics.push(`../../assets/img/simone/sim${i}.jpg`);
+    }
+
+    for(var i = 1; i < 3; i++){
+      this.tracyPics.push(`../../assets/img/tracy/tracy${i}.jpg`);
+    }
+
+    
 
   }
 

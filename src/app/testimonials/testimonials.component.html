@@ -160,5 +160,121 @@
             </owl-carousel>
           </div>
 
+          <div class="row rowProp">
+            <div class="testi">
+              <h2 class="myh2">Metty</h2>
+              <p class="pIndent"><b>"</b>Metty started exercise with me a little over a year ago, she lost 17 lb and gained muscles, improved health and increased strength level. 
+                She says that she doesn't want to loose weight any more, but she keeps working out because it's her lifestyle now and exercise makes her feel good. She is always 
+                having way too much fun with girls during our sessions and sometimes it seems like we have a party!:))) Metty is very dedicated and I always set her as example of 
+                good nutrition and consistent trainings. So happy to have such amazing clients who become family!</p>
+            </div>
+            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of mettyPics">
+                <div class="thumbnail-image">
+                    <div *ngIf="isValid(image)">
+                        <img src={{image}} class="img-responsive img-rounded">
+                    </div>
+                    <div *ngIf="!isValid(image)">
+                          <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </owl-carousel>
+          </div>
+
+          <div class="row rowProp">
+            <div class="testi">
+              <h2 class="myh2">India</h2>
+              <p class="pIndent"><b>"</b>India, it's been almost 1.5 year as we are in this fitness journey together! I love your positivity and enthusiasm during trainings, you take every 
+                challenge with laugh even when you say you will cry :) You pushing your limits and thats what brings results! You have made this testimonial when you just started and you 
+                moved so much since then! It's time to set new goals and crush them! Get summer 2019 ready! Vacation is coming soon :)</p>
+            </div>
+            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of indiaPics">
+                <div class="thumbnail-image">
+                    <div *ngIf="isValid(image)">
+                        <img src={{image}} class="img-responsive img-rounded">
+                    </div>
+                    <div *ngIf="!isValid(image)">
+                          <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </owl-carousel>
+          </div>
+
+          <div class="row rowProp">
+            <div class="testi">
+              <h2 class="myh2">Pavithra</h2>
+              <p class="pIndent"><b>"</b>My name is Pavithra George and I started training with Alla in May 2018.  I had worked out with several trainers earlier but was unable to stick to a workout program, partly 
+                because I always found them intimidating. At age 40,  battling hypothyroidism and bad knees, I was even more apprehensive about starting a new workout regime with another trainer. 
+                Alla made me feel at ease right away. She has allowed me to work at my own pace, while making sure I maintain proper form and breathing habits. I have an unpredictable work schedule 
+                and Alla has always found a way to work with me, ensuring that I never miss my workouts with her twice a week. She works hard everyday to create individual routines for her diverse 
+                group of clients who are of all ages and fitness levels. In addition to fitness, she also takes great interest in our nutrition and often holds seminars to improve our eating habits. 
+                In about six months, I have lost almost 14 inches and 11 pounds and I am much stronger than what I used to be. Alla believes in all of her clients and it shows in the hard work and 
+                dedication with which she approaches her training sessions with us. I highly recommend her!</p>
+            </div>
+            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of pavPics">
+                <div class="thumbnail-image">
+                    <div *ngIf="isValid(image)">
+                        <img src={{image}} class="img-responsive img-rounded">
+                    </div>
+                    <div *ngIf="!isValid(image)">
+                          <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </owl-carousel>
+          </div>
+
+          <div class="row rowProp">
+            <div class="testi">
+              <h2 class="myh2">Simone</h2>
+              <p class="pIndent"><b>"</b>There are many good fitness instructors. What sets Alla apart is that she doesn’t just craft a workout program perfectly customized to your goals and physique, she cares about 
+                your holistic health and fitness progress more than any trainer I’ve ever worked with. Alla believes that an educated client makes the most successful client and provides 
+                guidance on every aspect of fitness, from technique to nutrition to sleep and stress management. She‘s like your best friend, drill sergeant, and mother rolled into one. 
+                You can’t go wrong with Alla.</p>
+            </div>
+            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of simonePics">
+                <div class="thumbnail-image">
+                    <div *ngIf="isValid(image)">
+                        <img src={{image}} class="img-responsive img-rounded">
+                    </div>
+                    <div *ngIf="!isValid(image)">
+                          <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </owl-carousel>
+          </div>
+
+          <div class="row rowProp">
+            <div class="testi">
+              <h2 class="myh2">Tracy</h2>
+              <p class="pIndent"><b>"</b>There are many good fitness instructors. What sets Alla apart is that she doesn’t just craft a workout program perfectly customized to your goals and physique, she cares about 
+                your holistic health and fitness progress more than any trainer I’ve ever worked with. Alla believes that an educated client makes the most successful client and provides 
+                guidance on every aspect of fitness, from technique to nutrition to sleep and stress management. She‘s like your best friend, drill sergeant, and mother rolled into one. 
+                You can’t go wrong with Alla.</p>
+            </div>
+            <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+              <div class="item" *ngFor="let image of tracyPics">
+                <div class="thumbnail-image">
+                    <div *ngIf="isValid(image)">
+                        <img src={{image}} class="img-responsive">
+                    </div>
+                    <div *ngIf="!isValid(image)">
+                          <iframe width="484" height="350" [src]="image" frameborder="0" allow="accelerometer; 
+                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+              </div>
+            </owl-carousel>
+          </div>
   </div>
 </section>
