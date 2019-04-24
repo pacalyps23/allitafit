@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  admins: ["pacalyps85@gmail.com", "allavasylyga@gmail.com"]
+  admins: ["TYNUqfZOi6UohcoqTF4ylq6lMeX2", "iFxvY7nKduRpAIWezo5fCnBQjXA3"]
 };
 
 /*

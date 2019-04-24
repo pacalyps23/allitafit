@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
     this.articleService.getArticles().subscribe(data => {
       this.articles = data;
     });
-    this.getImages();
+    //this.getImages();
   }
 
   addArticle(article: any) {
@@ -81,14 +81,5 @@ export class AdminComponent implements OnInit {
   // Determines if the upload task is active
   isActive(snapshot) {
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes
-  }
-
-  getImages() {
-    for (var i = 3; i > 0; i--) {
-      var reference = this.storage.ref(`gallery/WBFF/wbff${i}.JPG`);
-      reference.getDownloadURL().subscribe(data => {
-        console.log(data);
-      })
-    }
   }
 }

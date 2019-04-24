@@ -12,7 +12,9 @@
   </div>
 </section>
 <section>
-  <table class="table table-striped">
+  <div style="padding-top: 50px">
+    <h2 style="text-align:center">Results</h2>
+    <table class="table table-striped">
     <colgroup>
       <col span="8">
       <col style="background-color:limegreen">
@@ -89,30 +91,39 @@
           <td>{{gwenAll}}</td>
         </tr>
         <tr>
-          <td>India</td>
-          <td *ngFor="let cardio of ind1">{{cardio}}</td>
-          <td>{{ind1Total}}</td>
-          <td *ngFor="let cardio of ind2">{{cardio}}</td>
-          <td>{{ind2Total}}</td>
-          <td>{{indAll}}</td>
+            <td>Irina</td>
+            <td *ngFor="let cardio of irin1">{{cardio}}</td>
+            <td>{{irin1Total}}</td>
+            <td *ngFor="let cardio of irin2">{{cardio}}</td>
+            <td>{{irin2Total}}</td>
+            <td>{{irinAll}}</td>
         </tr>
         <tr>
-          <td>Metty</td>
-          <td *ngFor="let cardio of met1">{{cardio}}</td>
-          <td>{{met1Total}}</td>
-          <td *ngFor="let cardio of met2">{{cardio}}</td>
-          <td>{{met2Total}}</td>
-          <td>{{metAll}}</td>
-          <td>0</td>
+            <td>Jessica</td>
+            <td *ngFor="let cardio of son1">{{cardio}}</td>
+            <td>{{stacy1Total}}</td>
+            <td *ngFor="let cardio of son2">{{cardio}}</td>
+            <td>{{stacy2Total}}</td>
+            <td>{{stacyAll}}</td>
+        </tr>
+
+        <tr>
+          <td>Kiki</td>
+          <td *ngFor="let cardio of kiki1">{{cardio}}</td>
+          <td>{{kiki1Total}}</td>
+          <td *ngFor="let cardio of kiki2">{{cardio}}</td>
+          <td>{{kiki2Total}}</td>
+          <td>{{kikiAll}}</td>
         </tr>
         <tr>
-          <td>Naomi</td>
-          <td *ngFor="let cardio of nao1">{{cardio}}</td>
-          <td>{{nao1Total}}</td>
-          <td *ngFor="let cardio of nao2">{{cardio}}</td>
-          <td>{{nao2Total}}</td>
-          <td>{{naoAll}}</td>
+          <td>Martha</td>
+          <td *ngFor="let cardio of mart1">{{cardio}}</td>
+          <td>{{mart1Total}}</td>
+          <td *ngFor="let cardio of mart2">{{cardio}}</td>
+          <td>{{mart2Total}}</td>
+          <td>{{martAll}}</td>
         </tr>
+       
         <tr>
           <td>Pam</td>
           <td *ngFor="let cardio of pam1">{{cardio}}</td>
@@ -137,6 +148,14 @@
           <td>{{sham2Total}}</td>
           <td>{{shamAll}}</td>
         </tr>
+                <tr>
+            <td>Simone</td>
+            <td *ngFor="let cardio of sim1">{{cardio}}</td>
+            <td>{{sim1Total}}</td>
+            <td *ngFor="let cardio of sim2">{{cardio}}</td>
+            <td>{{sim2Total}}</td>
+            <td>{{simAll}}</td>
+          </tr>
         <tr>
           <td>Sonia</td>
           <td *ngFor="let cardio of son1">{{cardio}}</td>
@@ -145,5 +164,61 @@
           <td>{{son2Total}}</td>
           <td>{{sonAll}}</td>
         </tr>
+
+          <tr>
+              <td>Stacy</td>
+              <td *ngFor="let cardio of stacy1">{{cardio}}</td>
+              <td>{{stacy1Total}}</td>
+              <td *ngFor="let cardio of stacy2">{{cardio}}</td>
+              <td>{{stacy2Total}}</td>
+              <td>{{stacyAll}}</td>
+            </tr>
+            <tr>
+                <td>Suewella</td>
+                <td *ngFor="let cardio of wella1">{{cardio}}</td>
+                <td>{{wella1Total}}</td>
+                <td *ngFor="let cardio of wella2">{{cardio}}</td>
+                <td>{{wella2Total}}</td>
+                <td>{{wellaAll}}</td>
+              </tr>
   </table>
+  </div>
+  
 </section>
+
+<!-- <section>
+  <div class="goat" style="display: inline-block">
+    <h2>Daily Calorie Submissions</h2>
+    <form>
+      <select>
+        <option *ngFor="let day of days">
+          {{day}}
+        </option>
+      </select>
+        <input type="number" id="calorie" [(ngModel)]="calorie.calories" name="email">
+        <button type="button" class="btn btn-primary" (click)="submitCardio(day, calorie.calories)">Submit</button>
+    </form>
+    
+  </div>
+  <div class="goat" style="float: right;">
+            <h2 style="text-align:center">My Submissions</h2>
+        <table class="box" border="1">
+            <colgroup>
+              <col span="1" style="width: 100px;">
+              <col span="1" style="width: 100px;">
+              <col span="1" style="width: 50px;">
+           </colgroup>
+          <tr>
+          <th>Day</th>
+          <th>Calories</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let calorie of myCals">
+          <td>{{calorie.data.day}}</td>
+          <td>{{calorie.data.calories}}</td>
+          <td><button class="btn btn-danger" (click)="deleteCalorie(calorie)">Delete</button></td>
+        </tr>
+        </table>
+  </div>
+   <br>
+</section> -->

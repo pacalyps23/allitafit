@@ -64,11 +64,11 @@ export class TestimonialsComponent implements OnInit {
       this.indiaPics.push(`../../assets/img/india/india${i}.jpg`);
     }
 
-    for(var i = 1; i < 5; i++){
+    for(var i = 1; i < 4; i++){
       this.pavPics.push(`../../assets/img/pav/pav${i}.jpg`);
     }
 
-    for(var i = 1; i < 5; i++){
+    for(var i = 1; i < 4; i++){
       this.simonePics.push(`../../assets/img/simone/sim${i}.jpg`);
     }
 

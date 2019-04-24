@@ -37,6 +37,7 @@ import { TabModule } from 'angular-tabs-component';
 import { CardioComponent } from './cardio/cardio.component';
 
 
+
 var firebaseConfig = {
   apiKey: "AIzaSyAOV571ckUC5u6awW96SanIHesAmhnb6D4",
       authDomain: "allitafit.firebaseapp.com",
@@ -101,7 +102,7 @@ const appRoutes: Routes = [
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AuthService, ArticleService, AuthGuard, GalleryService, ContactService
+    AuthService, ArticleService, AuthGuard, GalleryService, ContactService,
   ],
   bootstrap: [AppComponent]
 })

@@ -14,11 +14,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private sanitizer: DomSanitizer) { 
     this.mySlideImages = [
+      sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/aV9wRW2kFLk"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/t21UVXqdIF8"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/F_rsREk7MAg"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/O0ZZCWCoP-4"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/MOyVEX61mEI"),
-      sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/myrKcdIheMw")
+      sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/myrKcdIheMw"),
     ]
   }
 

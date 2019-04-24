@@ -35,7 +35,6 @@ export class BlogComponent implements OnInit {
     this.post = this.articleService.getItem(postId);
     this.post.subscribe(data => {
       this.pdfSrc = data.fileUrl;
-      console.log(this.pdfSrc);
     });
     }
 

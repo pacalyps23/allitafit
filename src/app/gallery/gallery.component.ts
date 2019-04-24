@@ -13,29 +13,53 @@ export class GalleryComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   wbffGalleryImages: NgxGalleryImage[] = new Array();
   fitGalleryImages: NgxGalleryImage[] = new Array();
+  stGalleryImages: NgxGalleryImage[] = new Array();
 
   constructor(private galleryService: GalleryService, private storage: AngularFireStorage) {
-    for (var i = 51; i > 0; i--) {
-      var reference = this.storage.ref(`gallery/WBFF/wbff${i}.JPG`);
-      reference.getDownloadURL().subscribe(url => {
+
+
+    for (var j = 30; j > 0; j--) {
+      let url = `../../assets/img/WBFF/wbff${j}.JPG`
+      try {
         this.wbffGalleryImages.push({
           small: url,
           medium: url,
           big: url
         });
-      });
+      } catch (err) {
+        console.log("Not found" + err.message);
+      }
+
     }
 
-    for(var j = 30; j > 0; j--){
-      var ref = this.storage.ref(`gallery/FIT/fit${j}.JPG`);
-      ref.getDownloadURL().subscribe(url => {
+    for (var j = 24; j > 0; j--) {
+      let url = `../../assets/img/Fit/fit${j}.JPG`
+      try {
         this.fitGalleryImages.push({
           small: url,
           medium: url,
           big: url
         });
-      });
+      } catch (err) {
+        console.log(err.message);
+      }
+
     }
+
+    for (var j = 35; j > 0; j--) {
+      let url = `../../assets/img/StrongerTogether/st${j}.jpg`
+      try {
+        this.stGalleryImages.push({
+          small: url,
+          medium: url,
+          big: url
+        });
+      } catch (err) {
+        console.log("Not found" + err.message)
+      }
+
+    }
+
   }
 
   ngOnInit() {

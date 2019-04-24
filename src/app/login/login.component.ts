@@ -13,14 +13,38 @@ export class LoginComponent implements OnInit {
     email: '',
     password: ''
   };
+  formErrors = {
+    'email': '',
+    'password': ''
+  };
+
+  validationMessages = {
+    'email': {
+      'required':      'Email is required.',
+      'email':         'Email must be a valid email'
+    },
+    'password': {
+      'required':      'Password is required.',
+      'pattern':       'Password must be include at one letter and one number.',
+      'minlength':     'Password must be at least 4 characters long.',
+      'maxlength':     'Password cannot be more than 40 characters long.',
+    }
+  };
+
+  newUser: boolean = true; // to toggle login or signup form
+  passReset: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
+    
+  }
+
+  ngOnInit() {
   }
 
     signInWithFacebook() {
       this.authService.signInWithFacebook()
       .then((res) => {
-          this.router.navigate(['home'])
+          location.reload();
         })
       .catch((err) => console.log(err));
     }
@@ -29,21 +53,27 @@ export class LoginComponent implements OnInit {
     signInWithGoogle() {
       this.authService.signInWithGoogle()
       .then((res) => {
-          this.router.navigate(['home'])
+          location.reload();
         })
       .catch((err) => console.log(err));
     }
 
-    signInWithEmail(){
-      this.authService.signInRegular('a', 'b').
+    signInWithEmail(user){
+      this.authService.signInRegular(user.email, user.password).
       then((res) => {
-          this.router.navigate(['home'])
+        location.reload();
       }).catch((err)=>console.log(err));
     }
 
+    createAccount(user){
+      this.authService.register(user.email, user.password).
+      then((res)=> {
+        
+      }).catch((err)=> console.log(err));
+    }
 
-
-  ngOnInit() {
-  }
+    toggleForm(): void {
+      this.newUser = !this.newUser;
+    }
 
 }

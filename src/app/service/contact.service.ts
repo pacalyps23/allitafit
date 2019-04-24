@@ -1,5 +1,4 @@
 import { Injectable, OnInit, Input } from '@angular/core';
-
 import { Contact } from '../contact/contact';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
