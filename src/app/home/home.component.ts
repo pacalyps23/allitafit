@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,10 @@ export class HomeComponent implements OnInit {
   mySlideImages;
   mySlideOptions={items: 3, dots: false, nav: true};
   myCarouselOptions={items: 3, dots: true, nav: true};
+  public mobileWidth;
+  public mobileMarg;
 
-
-  constructor(private sanitizer: DomSanitizer) { 
+  constructor(private sanitizer: DomSanitizer, private auth: AuthService) { 
     this.mySlideImages = [
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/aV9wRW2kFLk"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/t21UVXqdIF8"),
@@ -24,6 +26,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.auth.isMobile()){
+      this.mobileWidth = { "width": "900px",};
+      this.mobileMarg = { "margin": "20px"};
+    }
   }
 
 }

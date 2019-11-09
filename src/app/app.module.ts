@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
@@ -7,7 +8,7 @@ import { ContactService } from './service/contact.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProgramsComponent } from './programs/programs.component';
+import { EventsComponent } from './events/events.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { GalleryComponent } from './gallery/gallery.component';
 import { NgxGalleryModule } from 'ngx-gallery';
@@ -27,16 +28,23 @@ import { ArticleComponent } from './article/article.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { AuthService } from './service/auth.service';
-import { AuthGuard } from './service/authguard.service';
+import { AuthGuardService as AuthGuard, AuthGuardService } from './service/auth-guard.service';
 import { ArticleService } from './service/article-service.service';
 import { GalleryService } from './service/gallery.service';
+import { EventService } from './service/event-service.service';
 import { DropZoneDirective } from './drop-zone.directive';
+//import { Routes, RouterModule } from '@angular/router';
 import { Routes, RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { TabModule } from 'angular-tabs-component';
 import { CardioComponent } from './cardio/cardio.component';
-
-
+import { MyFitnessComponent } from './my-fitness/my-fitness.component';
+import { ChartsModule } from 'ng2-charts';
+import { MyChartComponent } from './my-chart/my-chart.component';
+import { ExerciseComponent } from './exercise/exercise.component';
+import { LibraryComponent } from './library/library.component';
+import { SingleEventComponent } from './single-event/single-event.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAOV571ckUC5u6awW96SanIHesAmhnb6D4",
@@ -49,15 +57,16 @@ var firebaseConfig = {
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent,  },
-  { path: 'programs', component: ProgramsComponent },
+  { path: 'events', component: EventsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cardio', component: CardioComponent},
+  { path: 'my fitness', component: MyFitnessComponent},
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent,},
-  { path: 'admin', component: AdminComponent},
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
 ];
 
 
@@ -67,7 +76,7 @@ const appRoutes: Routes = [
     AppComponent,
     HomeComponent,
     FooterComponent,
-    ProgramsComponent,
+    EventsComponent,
     GalleryComponent,
     BlogComponent,
     ContactComponent,
@@ -77,7 +86,15 @@ const appRoutes: Routes = [
     ArticleComponent,
     DropZoneDirective,
     CardioComponent,
-    
+    MyFitnessComponent,
+    MyChartComponent,
+    ExerciseComponent,
+    LibraryComponent,
+    SingleEventComponent,
+    EditEventComponent,
+  ],
+  entryComponents:[
+    EditEventComponent
   ],
   imports: [
     BrowserModule,
@@ -98,11 +115,13 @@ const appRoutes: Routes = [
     ToastrModule.forRoot({ toastClass: 'toast toast-bootstrap-compatibility-fix' }),
     BrowserAnimationsModule,
     TabModule,
+    ChartsModule,
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AuthService, ArticleService, AuthGuard, GalleryService, ContactService,
+    AuthService, ArticleService, AuthGuard, GalleryService, 
+    ContactService, MyChartComponent, EventService
   ],
   bootstrap: [AppComponent]
 })

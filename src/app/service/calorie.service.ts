@@ -3,7 +3,6 @@ import { Calorie } from '../cardio/calorie';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs/Observable';
 import { ToastrService } from 'ngx-toastr';
-import { whenRendered } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +25,7 @@ export class CalorieService {
          const data = a.payload.doc.data() as Calorie;
          const id = a.payload.doc.id;
          return { id, data };
-       });
+       })
      });
    }
 
@@ -38,17 +37,15 @@ export class CalorieService {
    }
 
    getCalorie(email): Observable<any> {
-      return this.db.collection('calorie', ref => ref.where('email', '==', email) ).snapshotChanges().
-     map(action => {
-       return action.map(a => {
-         const data = a.payload.doc.data() as Calorie;
-         const id = a.payload.doc.id;
-         return {id, data }
-       });
-     });
+      return this.db.collection('calorie', ref => ref.where('name', '==', email) ).valueChanges();
    }
 
    deleteCalorie(postId){
-     this.db.collection('calorie').doc(postId).delete().then(_ => alert("Delete Article"));
+     this.db.collection('calorie').doc(postId).delete().then(_ => this.toastr.success("Delete Article"));
+   }
+
+   updateCalories(calorie){
+     console.log(calorie);
+     this.db.collection('calorie').doc(calorie.id).update(calorie).catch(_=> this.toastr.error("Eror Updating")).then(_=> this.toastr.success("Updated Successfully"));
    }
 }

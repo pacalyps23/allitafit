@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { ArticleService } from '../service/article-service.service';
+import { AuthService } from '../service/auth.service';
+import { Article } from '../article/article.model';
 
 @Component({
   selector: 'app-blog',
@@ -11,24 +13,30 @@ import { ArticleService } from '../service/article-service.service';
 
 
 export class BlogComponent implements OnInit {
-  articles: any;
+  articles: Array<any>;
   pdfSrc: string;
   post: Observable<any>;
   isLoaded: boolean = false;
+  mobileWidth;
+  user: any = null;
 
-  constructor(public articleService: ArticleService) {
-    
+  constructor(private articleService: ArticleService, private auth: AuthService) {
+      if(auth.isMobile()){
+        this.mobileWidth = { "width": "900px" } 
+      }
+      this.user = auth.getUser();
    }
 
 
 
   ngOnInit() {
    this.articles = this.articleService.getArticles();
-      this.articles = this.sortedArticles();
+   this.articles = this.sortedArticles();
+    
   }
 
   sortedArticles(): any[]{
-  return this.articles.map(data => data.sort((a,b) => b.data.votes - a.data.votes));
+  return this.articles.map(data => data.sort((a,b) => +new Date(b.data.date) - +new Date(a.data.date) ));
 }
 
   getPost(postId){

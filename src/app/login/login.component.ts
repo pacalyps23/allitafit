@@ -8,27 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  user = {
+  mobileWidth;
+  private user = {
     email: '',
     password: ''
-  };
-  formErrors = {
-    'email': '',
-    'password': ''
-  };
-
-  validationMessages = {
-    'email': {
-      'required':      'Email is required.',
-      'email':         'Email must be a valid email'
-    },
-    'password': {
-      'required':      'Password is required.',
-      'pattern':       'Password must be include at one letter and one number.',
-      'minlength':     'Password must be at least 4 characters long.',
-      'maxlength':     'Password cannot be more than 40 characters long.',
-    }
   };
 
   newUser: boolean = true; // to toggle login or signup form
@@ -39,6 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.authService.isMobile()){
+      this.mobileWidth = {
+        "width": "900px",
+      }
+    }
   }
 
     signInWithFacebook() {

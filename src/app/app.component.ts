@@ -1,8 +1,8 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { AuthService } from './service/auth.service';
-import { environment } from '../environments/environment';
 import { Router } from '@angular/router';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 
 @Component({
@@ -11,13 +11,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
   
 })
-export class AppComponent {
-  public width=1080;
+export class AppComponent implements OnInit {
   title = 'app';
   public isLogged;
   public email;
   public isAdmin = false;
   public mobile = false;
+  public header;
+  public social;
+  
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
@@ -25,14 +27,24 @@ export class AppComponent {
     private auth: AuthService,
     private router: Router,
   ) {
-    if(auth.getUser() == null || auth.getUser() == undefined){
-        this.email = ""
+        
+    if(auth.isMobile()){
+     this.header = {
+       "width": "900px",
+     };
+     this.social = {
+       "position": "inherit",
+       "text-align": "end"
+     };
+
+    }
+
+    let user = auth.getUser();
+    if(user == null || user == undefined){
+      this.email = ""
     }else{
-      let user = auth.getUser();
-      this.email = auth.getUser().email;
-      if(environment.admins.includes(user.uid)){
-        this.isAdmin = true;
-      }
+      this.email = user.email;
+      this.isAdmin = auth.isAdmin();
     }
   }
 

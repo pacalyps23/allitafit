@@ -8,11 +8,16 @@
 
 .galleryTitle{
     color: firebrick;
-    text-shadow: 5px 5px black;
+    text-shadow: 6px 8px rebeccapurple;
 }
 
 .myTitle{
     text-align: center;
     color: palevioletred;
     text-shadow: 2px 2px black;
+}
+
+:host /deep/ .tabs__tab[_ngcontent-c3]{
+    display: block;
+    background-color: orchid;
 }

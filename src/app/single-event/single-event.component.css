@@ -1,0 +1,24 @@
+.thumbnail-image {
+    padding: 10px;
+}
+
+main {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.fitTitle{
+    color: orangered;
+    text-shadow: 8px 6px darkred
+}
+
+.row {
+    display: block;  
+}
+
+.rowProp{
+    border: 1px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: white;
+}

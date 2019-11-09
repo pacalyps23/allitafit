@@ -1,224 +1,115 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(assets/img/img_1.jpg);"
-  data-stellar-background-ratio="0.5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7 probootstrap-intro-text">
-        <h1 data-animate-effect="fadeIn" class="galleryTitle">Just Do It!</h1>
-        <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
-          <h2>Alla Vasylyga</h2>
+<div [ngStyle]="mobileWidth">
+  <section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/fitBanner3.jpeg);"
+    data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 probootstrap-intro-text">
+          <h1 data-animate-effect="fadeIn" class="myTitle">Just Do It!</h1>
+          <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
+            <h2 style="color:tomato; text-shadow: 2px 2px brown">Stronger Together</h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section>
-  <div style="padding-top: 50px">
-    <h2 style="text-align:center">Results</h2>
-    <table class="table table-striped">
-    <colgroup>
-      <col span="8">
-      <col style="background-color:limegreen">
-      <col span="7">
-      <col style="background-color:limegreen">
-      <col style="background-color:lightsteelblue">
-    </colgroup>
-      <tr>
+  </section>
+  <section class="container">
+    <div style="padding-top: 50px; padding-bottom: 50px;">
+      <h2 style="text-align:center">Week 1 & Week 2</h2>
+      <table class="table table-striped" style="border:solid">
+        <colgroup>
+          <col style="background-color:beige; font-weight:bold;">
+          <col span="7">
+          <col style="background-color:skyblue">
+          <col span="7">
+          <col style="background-color:skyblue">
+          <col style="background-color:palegreen">
+        </colgroup>
+        <tr>
           <th>Participant</th>
-          <th>April 22</th> 
-          <th>April 23</th>
-          <th>April 24</th>
-          <th>April 25</th>
-          <th>April 26</th>
-          <th>April 27</th>
-          <th>April 28</th>
+          <th>June 1</th>
+          <th>June 2</th>
+          <th>June 3</th>
+          <th>June 4</th>
+          <th>June 5</th>
+          <th>June 6</th>
+          <th>June 7</th>
           <th>Week 1</th>
-          <th>April 29</th>
-          <th>April 30</th>
-          <th>May 1</th>
-          <th>May 2</th>
-          <th>May 3</th>
-          <th>May 4</th>
-          <th>May 5</th>
+          <th>June 8</th>
+          <th>June 9</th>
+          <th>June 10</th>
+          <th>June 11</th>
+          <th>June 12</th>
+          <th>June 13</th>
+          <th>June 14</th>
           <th>Week 2</th>
           <th>Total</th>
         </tr>
-        <tr>
-          <td>Ama</td>
-          <td *ngFor="let cardio of ama1">{{cardio}}</td>
-          <td>{{ama1Total}}</td>
-          <td *ngFor="let cardio of ama2">{{cardio}}</td>
-          <td>{{ama2Total}}</td>
-          <td>{{amaAll}}</td>
-        </tr>
-        <tr>
-          <td>Anna</td> 
-          <td *ngFor="let cardio of anna1">{{cardio}}</td>
-          <td>{{anna1Total}}</td>
-          <td *ngFor="let cardio of anna2">{{cardio}}</td>
-          <td>{{anna2Total}}</td>
-          <td>{{annaAll}}</td>
-        </tr>
-        <tr>
-          <td>Bruce</td>
-          <td *ngFor="let cardio of bruce1">{{cardio}}</td>
-          <td>{{bruce1Total}}</td>
-          <td *ngFor="let cardio of bruce2">{{cardio}}</td>
-          <td>{{bruce2Total}}</td>
-          <td>{{bruceAll}}</td>
-        </tr>
-        <tr>
-          <td>Debra</td>
-          <td *ngFor="let cardio of debra1">{{cardio}}</td>
-          <td>{{debra1Total}}</td>
-          <td *ngFor="let cardio of debra2">{{cardio}}</td>
-          <td>{{debra2Total}}</td>
-          <td>{{debraAll}}</td>
-        </tr>
-        <tr>
-          <td>Evgenia</td>
-          <td *ngFor="let cardio of evg1">{{cardio}}</td>
-          <td>{{evg1Total}}</td>
-          <td *ngFor="let cardio of evg2">{{cardio}}</td>
-          <td>{{evg2Total}}</td>
-          <td>{{evgAll}}</td>
-        </tr>
-        <tr>
-          <td>Gwen</td>
-          <td *ngFor="let cardio of gwen1">{{cardio}}</td>
-          <td>{{gwen1Total}}</td>
-          <td *ngFor="let cardio of gwen2">{{cardio}}</td>
-          <td>{{gwen2Total}}</td>
-          <td>{{gwenAll}}</td>
-        </tr>
-        <tr>
-            <td>Irina</td>
-            <td *ngFor="let cardio of irin1">{{cardio}}</td>
-            <td>{{irin1Total}}</td>
-            <td *ngFor="let cardio of irin2">{{cardio}}</td>
-            <td>{{irin2Total}}</td>
-            <td>{{irinAll}}</td>
-        </tr>
-        <tr>
-            <td>Jessica</td>
-            <td *ngFor="let cardio of son1">{{cardio}}</td>
-            <td>{{stacy1Total}}</td>
-            <td *ngFor="let cardio of son2">{{cardio}}</td>
-            <td>{{stacy2Total}}</td>
-            <td>{{stacyAll}}</td>
-        </tr>
-
-        <tr>
-          <td>Kiki</td>
-          <td *ngFor="let cardio of kiki1">{{cardio}}</td>
-          <td>{{kiki1Total}}</td>
-          <td *ngFor="let cardio of kiki2">{{cardio}}</td>
-          <td>{{kiki2Total}}</td>
-          <td>{{kikiAll}}</td>
-        </tr>
-        <tr>
-          <td>Martha</td>
-          <td *ngFor="let cardio of mart1">{{cardio}}</td>
-          <td>{{mart1Total}}</td>
-          <td *ngFor="let cardio of mart2">{{cardio}}</td>
-          <td>{{mart2Total}}</td>
-          <td>{{martAll}}</td>
-        </tr>
-       
-        <tr>
-          <td>Pam</td>
-          <td *ngFor="let cardio of pam1">{{cardio}}</td>
-          <td>{{pam1Total}}</td>
-          <td *ngFor="let cardio of pam2">{{cardio}}</td>
-          <td>{{pam2Total}}</td>
-          <td>{{pamAll}}</td>
-        </tr>
-        <tr>
-          <td>Pavithra</td>
-          <td *ngFor="let cardio of pav1">{{cardio}}</td>
-          <td>{{pav1Total}}</td>
-          <td *ngFor="let cardio of pav2">{{cardio}}</td>
-          <td>{{pav2Total}}</td>
-          <td>{{pavAll}}</td>
-        </tr>
-        <tr>
-          <td>Shamyla</td>
-          <td *ngFor="let cardio of sham1">{{cardio}}</td>
-          <td>{{sham1Total}}</td>
-          <td *ngFor="let cardio of sham2">{{cardio}}</td>
-          <td>{{sham2Total}}</td>
-          <td>{{shamAll}}</td>
-        </tr>
-                <tr>
-            <td>Simone</td>
-            <td *ngFor="let cardio of sim1">{{cardio}}</td>
-            <td>{{sim1Total}}</td>
-            <td *ngFor="let cardio of sim2">{{cardio}}</td>
-            <td>{{sim2Total}}</td>
-            <td>{{simAll}}</td>
+        <tr *ngFor="let user of steps">
+            <td>{{user.name}}</td>
+            <td *ngFor="let cardio of user.week1">{{cardio}}</td>
+            <td>{{user.week1Tot}}</td>
+            <td *ngFor="let cardio of user.week2">{{cardio}}</td>
+            <td>{{user.week2Tot}}</td>
+            <td>{{user.half1}}</td>
           </tr>
-        <tr>
-          <td>Sonia</td>
-          <td *ngFor="let cardio of son1">{{cardio}}</td>
-          <td>{{son1Total}}</td>
-          <td *ngFor="let cardio of son2">{{cardio}}</td>
-          <td>{{son2Total}}</td>
-          <td>{{sonAll}}</td>
-        </tr>
 
-          <tr>
-              <td>Stacy</td>
-              <td *ngFor="let cardio of stacy1">{{cardio}}</td>
-              <td>{{stacy1Total}}</td>
-              <td *ngFor="let cardio of stacy2">{{cardio}}</td>
-              <td>{{stacy2Total}}</td>
-              <td>{{stacyAll}}</td>
-            </tr>
-            <tr>
-                <td>Suewella</td>
-                <td *ngFor="let cardio of wella1">{{cardio}}</td>
-                <td>{{wella1Total}}</td>
-                <td *ngFor="let cardio of wella2">{{cardio}}</td>
-                <td>{{wella2Total}}</td>
-                <td>{{wellaAll}}</td>
-              </tr>
-  </table>
-  </div>
-  
-</section>
+      </table>
+    </div>
 
-<!-- <section>
-  <div class="goat" style="display: inline-block">
-    <h2>Daily Calorie Submissions</h2>
-    <form>
-      <select>
-        <option *ngFor="let day of days">
-          {{day}}
-        </option>
-      </select>
-        <input type="number" id="calorie" [(ngModel)]="calorie.calories" name="email">
-        <button type="button" class="btn btn-primary" (click)="submitCardio(day, calorie.calories)">Submit</button>
-    </form>
-    
-  </div>
-  <div class="goat" style="float: right;">
-            <h2 style="text-align:center">My Submissions</h2>
-        <table class="box" border="1">
-            <colgroup>
-              <col span="1" style="width: 100px;">
-              <col span="1" style="width: 100px;">
-              <col span="1" style="width: 50px;">
-           </colgroup>
+    <div style="padding-top: 50px; padding-bottom: 50px;">
+        <h2 style="text-align:center">Week 3 & Week 4</h2>
+        <table class="table table-striped" style="border:solid">
+          <colgroup>
+            <col style="background-color:beige; font-weight:bold;">
+            <col span="7">
+            <col style="background-color:skyblue">
+            <col span="9">
+            <col style="background-color:skyblue">
+            <col style="background-color:palegreen">
+          </colgroup>
           <tr>
-          <th>Day</th>
-          <th>Calories</th>
-          <th>Action</th>
-        </tr>
-        <tr *ngFor="let calorie of myCals">
-          <td>{{calorie.data.day}}</td>
-          <td>{{calorie.data.calories}}</td>
-          <td><button class="btn btn-danger" (click)="deleteCalorie(calorie)">Delete</button></td>
-        </tr>
+            <th>Participant</th>
+            <th>June 15</th>
+            <th>June 16</th>
+            <th>June 17</th>
+            <th>June 18</th>
+            <th>June 19</th>
+            <th>June 20</th>
+            <th>June 21</th>
+            <th>Week 3</th>
+            <th>June 22</th>
+            <th>June 23</th>
+            <th>June 24</th>
+            <th>June 25</th>
+            <th>June 26</th>
+            <th>June 27</th>
+            <th>June 28</th>
+            <th>June 29</th>
+            <th>June 30</th>
+            <th>Week 4</th>
+            <th>Month Total</th>
+          </tr>
+          <tr *ngFor="let user of steps">
+            <td>{{user.name}}</td>
+            <td *ngFor="let cardio of user.week3">{{cardio}}</td>
+            <td>{{user.week3Tot}}</td>
+            <td *ngFor="let cardio of user.week4">{{cardio}}</td>
+            <td>{{user.week4Tot}}</td>
+            <td>{{user.allTot}}</td>
+
+          </tr>
         </table>
-  </div>
-   <br>
-</section> -->
+      </div>
+      <div class="container" style="text-align:center">
+        <img src="../../assets/img/Congratulations.gif">
+        <br>
+        <img src="../../assets/img/debra.jpeg" width="400" height="550">
+        <p style="font-size:40px">
+          Cardio Challenge Winner (April 22-May 22): Debra
+        </p>
+
+      </div>
+      <div style="padding-top:10%"></div>
+
+  </section>
+</div>

@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth'
 import * as firebase from 'firebase/app';
 import { User } from 'firebase';
+import { environment } from '../../environments/environment';
+import { BreakpointObserver } from '@angular/cdk/layout';
+
 
 @Injectable()
 export class AuthService {
@@ -10,7 +13,7 @@ export class AuthService {
   private admin: boolean = false;
 
 
-  constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
+  constructor(private firebaseAuth: AngularFireAuth, private router: Router, private breakpointObserver: BreakpointObserver) {
     firebaseAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
@@ -75,11 +78,22 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('user'));
   }
 
+  isAdmin(){
+      const user = JSON.parse(localStorage.getItem('user'));
+      if(environment.admins.includes(user.uid)){
+        return true;
+      }
+  }
+
 
   async logout() {
     await this.firebaseAuth.auth.signOut();
     localStorage.removeItem('user');
     location.reload();
+  }
+
+  isMobile() {
+    return this.breakpointObserver.isMatched('(max-width: 800px)');
   }
 
  

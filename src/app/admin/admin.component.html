@@ -1,102 +1,346 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(../../assets/img/img_1.jpg);"
-  data-stellar-background-ratio="0.5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7 probootstrap-intro-text">
-        <h1 data-animate-effect="fadeIn">ADMIN</h1>
-        <div class="probootstrap-subtitle probootstrap-animate" data-animate-effect="fadeIn">
-          <h2>Alla Vasylyga</h2>
+<div [ngStyle]="mobileWidth">
+  <section class="probootstrap-intro probootstrap-intro-inner"
+    style="background-image: url(../../assets/img/img_1.jpg);" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 probootstrap-intro-text">
+          <h1 data-animate-effect="fadeIn">ADMIN</h1>
+          <div class="probootstrap-subtitle probootstrap-animate" data-animate-effect="fadeIn">
+            <h2>Alla Vasylyga</h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<section>
-  <div class="container">
-    <h3>Add Blog</h3>
+  </section>
+  <section>
+    <tabs>
+      <tab tabTitle="Blog Service">
+        <div class="container">
 
-    <div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)" [class.hovering]="isHovering">
-        <h3>AngularFire Drop Zone</h3>
-  
-        <div class="file">
-          <label class="file-label">
-  
-  
-            <input class="file-input" type="file" (change)="startUpload($event.target.files)">
-  
-  
-            <span class="file-cta">
-              <span class="file-icon">
-                <i class="fa fa-upload"></i>
-              </span>
-              <span class="file-label">
-                or choose a file…
-              </span>
-            </span>
-          </label>
+          <h3>Add Blog</h3>
+
+          <div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+            [class.hovering]="isHovering">
+            <h3>Blog PDF/Thumbnail Drop Zone</h3>
+
+            <div class="file">
+              <label class="file-label">
+
+
+                <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+
+
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fa fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    or choose a file…
+                  </span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <div *ngIf="percentage | async as pct">
+
+            <progress class="progress is-info" [value]="pct" max="100">
+            </progress>
+
+            {{ pct | number }}%
+
+          </div>
+
+          <div class="container" *ngIf="downloadURL">
+            <p>Document Url:</p>
+            {{downloadURL}}
+          </div>
+
+
+
+          <div class="form-group">
+            <label for="name">Title</label>
+            <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date" required [(ngModel)]="article.date" name="date">
+          </div>
+
+          <div class="form-group">
+            <label for="fileUrl">Document URL</label>
+            <input type="text" class="form-control" id="fileUrl" required [(ngModel)]="article.fileUrl" name="fileUrl">
+          </div>
+
+          <div class="form-group">
+            <label for="thumbnailUrl">Thumbnail URL</label>
+            <input type="text" class="form-control" id="thumbnailUrl" required [(ngModel)]="article.thumbnailUrl"
+              name="thumbnailUrl">
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea rows="5" class="form-control" id="description" required [(ngModel)]="article.description"
+              name="description"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="addArticle(article)">Add Article</button>
         </div>
-      </div>
+
+        <section>
+          <div class="container">
+            <h3>Delete Blog</h3>
+            <table class="table table-striped">
+              <tr>
+                <th class="header" scope="col">Title</th>
+                <th class="spacing">Action</th>
+              </tr>
+              <tr *ngFor="let article of articles">
+                <td>{{article.data.title}}</td>
+                <td><button class="btn btn-danger" (click)="deleteArticle(article.id)">Delete</button></td>
+              </tr>
+            </table>
+          </div>
+        </section>
+
+      </tab>
+
+      <tab tabTitle="Event Service">
+          <div class="container">
   
-      <div *ngIf="percentage | async as pct">
+            <h3>Add Event</h3>
   
-        <progress class="progress is-info" [value]="pct" max="100">
-        </progress>
+            <div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+              [class.hovering]="isHovering">
+              <h3>Event Flyer Drop Zone</h3>
   
-        {{ pct | number }}%
+              <div class="file">
+                <label class="file-label">
   
-      </div>
-
-      <div class="container" *ngIf="downloadURL">
-        <h3>Url:</h3>
-        {{downloadURL}}
-      </div>
-
- 
-
-    <div class="form-group">
-      <label for="name">Title</label>
-      <input type="text" class="form-control" id="title" required [(ngModel)]="article.title" name="title">
-    </div>
-
-    <div class="form-group">
-      <label for="date">Date</label>
-      <input type="text" class="form-control" id="date" required [(ngModel)]="article.date" name="date">
-    </div>
-    
-    <div class="form-group">
-        <label for="fileUrl">Document URL</label>
-        <input type="text" class="form-control" id="fileUrl" required [(ngModel)]="article.fileUrl" name="fileUrl">
-      </div>
-
-      <div class="form-group">
-          <label for="thumbnailUrl">Thumbnail URL</label>
-          <input type="text" class="form-control" id="thumbnailUrl" required [(ngModel)]="article.thumbnailUrl" name="thumbnailUrl">
-        </div>
-
-    <div class="form-group">
-      <label for="description">Description</label>
-      <textarea rows="5" class="form-control" id="description" required [(ngModel)]="article.description" name="description"></textarea>
-    </div>
-    <button type="button" class="btn btn-primary" (click)="addArticle(article)">Add Article</button>
-  </div>
   
+                  <input class="file-input" type="file" (change)="startUpload($event.target.files)">
+  
+  
+                  <span class="file-cta">
+                    <span class="file-icon">
+                      <i class="fa fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                      or choose a file…
+                    </span>
+                  </span>
+                </label>
+              </div>
+            </div>
+  
+            <div *ngIf="percentage | async as pct">
+  
+              <progress class="progress is-info" [value]="pct" max="100">
+              </progress>
+  
+              {{ pct | number }}%
+  
+            </div>
+  
+            <div class="container" *ngIf="downloadURL">
+              <p>Document Url:</p>
+              {{downloadURL}}
+            </div>
+  
+  
+  
+            <div class="form-group">
+              <label for="name">Title</label>
+              <input type="text" class="form-control" id="title" required [(ngModel)]="event.title" name="title">
+            </div>
+  
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input type="date" class="form-control" id="date" required [(ngModel)]="event.date" name="date">
+            </div>
+  
+            <div class="form-group">
+              <label for="thumbnailUrl">Thumbnail URL</label>
+              <input type="text" class="form-control" id="thumbnailUrl" required [(ngModel)]="event.thumbnailUrl"
+                name="thumbnailUrl">
+            </div>
+  
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea rows="5" class="form-control" id="description" required [(ngModel)]="event.description"
+                name="description"></textarea>
+            </div>
 
-</section>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" class="form-control" id="location" required [(ngModel)]="event.location"
+                  name="location">
+              </div>
 
-<section>
-  <div class="container">
-    <h3>Delete Blog</h3>
-    <table class="table table-striped">
-      <tr>
-        <th class="header" scope="col">Title</th>
-        <th class="spacing">Action</th>
-      </tr>
-      <tr *ngFor="let article of articles">
-        <td>{{article.data.title}}</td>
-        <td><button class="btn btn-danger" (click)="deleteArticle(article.id)">Delete</button></td>
-      </tr>
-    </table>
-  </div>
-</section>
-<section class="aboveFoooter">
-</section>
+              <div class="form-group">
+                  <label for="essentials">Essentials</label>
+                  <textarea rows="3" class="form-control" id="essentials" required [(ngModel)]="event.essentials"
+                    name="essentials"></textarea>
+                </div>
+              <div class="form-group" style="text-align: center;">
+                  <div class="dropzone" dropZone (hovered)="toggleHover($event)" (dropped)="startUpload($event)"
+                  [class.hovering]="isHovering">
+                  <h3>Event Picture Drop Zone</h3>
+      
+                  <div class="file">
+                    <label class="file-label">
+      
+      
+                      <input class="file-input" type="file" (change)="startUploadPicture($event.target.files)">
+      
+      
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fa fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                          or choose a file…
+                        </span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
+      
+                <div *ngIf="percentage | async as pct">
+      
+                  <progress class="progress is-info" [value]="pct" max="100">
+                  </progress>
+      
+                  {{ pct | number }}%
+      
+                </div>
+      
+                <div class="container" *ngIf="downloadURL">
+                  <p>Document Url:</p>
+                  {{downloadURL}}
+                </div>
+
+                  <button type="button" (click)="addNewRow()" class="btn btn-primary">Add Picture</button><br>
+                  <form [formGroup]="invoiceForm">
+                    <div formArrayName="itemRows">
+                    
+                      <div *ngFor="let itemrow of invoiceForm.get('itemRows')['controls']; let i=index"  [formGroupName]="i">
+                        <h4>Picture Row #{{ i + 1 }}</h4>
+                        <div class="form-group">
+                          <label>Picture Url</label>
+                          <input formControlName="itemname" class="form-control">
+                        </div>
+                        <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">Delete Picture</button>
+                      </div>
+                    </div>
+              
+                  </form>
+              </div>
+
+
+            <button type="button" class="btn btn-success" (click)="addEvent(event)">Add Event</button>
+          </div>
+  
+          <section>
+            <div class="container">
+              <h3>Events</h3>
+              <table class="table table-striped">
+                <tr>
+                  <th class="header" scope="col">Title</th>
+                  <th class="spacing">Action</th>
+                </tr>
+                <tr *ngFor="let event of events">
+                  <td>{{event.data.title}}</td>
+                  <td><button class="btn btn-danger" (click)="deleteEvent(event.id)">Delete</button></td>
+                  <td><buttion class="btn btn-primary">Edit</buttion></td>
+                </tr>
+              </table>
+            </div>
+          </section>
+  
+        </tab>
+
+      <tab tabTitle="Profile Service">
+        <section>
+            <div class="card" *ngFor="let profile of profiles" style="padding-bottom:10px;">
+                <button (click)="profile.data.info=!profile.data.info"><h5 class="card-header">
+                  {{profile.data.fname}} {{profile.data.lname}}
+                </h5></button>
+                <div *ngIf="profile.data.info" class="card-body">
+                    <h5 class="card-title">Email</h5>
+                    <p>{{profile.data.email}}</p>
+                  <h5 class="card-title">DOB</h5>
+                  <p>{{profile.data.dob}}</p>
+                  <h5 class="card-title">Sex</h5>
+                  <p>{{profile.data.sex}}</p>
+                  <h5 class="card-title">Phone</h5>
+                  <p>{{profile.data.phone}}</p>
+                  <h5 class="card-title">Average Weight</h5>
+                  <p>{{profile.data.avgWeight}}</p>
+                  <h5 class="card-title">Activity Level</h5>
+                  <p>{{profile.data.activity}}</p>
+                  <h5 class="card-title">What are you fitness goals?</h5>
+                  <p>{{profile.data.goals}}</p>
+                  <h5 class="card-title">Tell me about your diet.</h5>
+                  <p>{{profile.data.diet}}</p>
+                  <h5 class="card-title">Health history?</h5>
+                  <div *ngFor="let health of profile.data.selectedHealth">
+                    <p>{{health}}</p>
+                  </div>
+                  <h5 class="card-title">Are there any exercies that are contraindicated or not recommended by physician or physical therapist?</h5>
+                  <p>{{profile.data.notRecommended}}</p>
+                  <h5 class="card-title">Are you currently involved in regular exercise? What is your training program now?</h5>
+                  <p>{{profile.data.exercise}}</p>
+                  <h5 class="card-title">What exercises have you tried before and what results did you have?</h5>
+                  <p>{{profile.data.program}}</p>
+                  <h5 class="card-title">Did you start exercise but then found youself unable to stick to them?</h5>
+                  <p>{{profile.data.discipline}}</p>
+                  
+                  <h5 class="card-title">When you do successfully reach your goals, in what way(s) will life be different?</h5>
+                  <div *ngFor="let goal of profile.data.reachGoals">
+                    {{goal}}
+                  </div>
+                  <h5 class="card-title">What steps can you take to reach your goals?</h5>
+                  <div *ngFor="let step of profile.data.steps">
+                    {{step}}
+                  </div>
+                  <h5 class="card-title">How much time are you willing to devote to an exercise program?</h5>
+                  <p>{{profile.data.time}}</p>
+                  <h5 class="card-title">What can we do together to make our exercise program more enjoyable?</h5>
+                  <p>{{profile.data.together}}</p>
+
+                </div>
+              </div>
+        </section>
+      </tab>
+
+      <tab tabTitle="Bootcamp">
+        <section>
+            <div class="card"  style="padding-bottom:10px;">
+              
+                <div class="container">
+                  <h3>Summer Blast Bootcamp</h3>
+                  <table class="table table-striped">
+                    <tr>
+                      <th class="header" scope="col">Name</th>
+                      <th class="spacing">Email</th>
+                    </tr>
+                    <tr *ngFor="let user of bootUsers">
+                      <td>{{user.data.first}} {{user.data.last}}</td>
+                      <td>{{user.data.email}}</td>
+                    </tr>
+                  </table>
+                </div>
+                
+            </div>
+        </section>
+      </tab>
+
+    </tabs>
+
+
+
+  </section>
+  <section class="aboveFoooter">
+  </section>
+</div>

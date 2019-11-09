@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import { AuthService } from '../service/auth.service';
 
 
 @Component({
@@ -21,11 +22,10 @@ export class TestimonialsComponent implements OnInit {
   simonePics = [];
   tracyPics = [];
    
-  mySlideOptions = { items: 3, dots: false, nav: true };
   public myCarouselOptions = { items: 3, dots: true, nav: true };
-  public show=false;
+  mobileWidth;
 
-  constructor(private sanitizer: DomSanitizer) {
+  constructor(private sanitizer: DomSanitizer, private auth: AuthService) {
 
     this.amaPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/UeAjr2p25po"));
     this.chetPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/b-SVOkghCb4"));
@@ -81,6 +81,9 @@ export class TestimonialsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.auth.isMobile()){
+      this.mobileWidth = { "width": "900px"}
+    }
   }
 
   isValid(image) {

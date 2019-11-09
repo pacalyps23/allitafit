@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryLayout } from 'ngx-gallery';
 import { GalleryService } from '../service/gallery.service';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  styleUrls: ['./gallery.component.css'],
 })
 export class GalleryComponent implements OnInit {
 
@@ -14,9 +15,10 @@ export class GalleryComponent implements OnInit {
   wbffGalleryImages: NgxGalleryImage[] = new Array();
   fitGalleryImages: NgxGalleryImage[] = new Array();
   stGalleryImages: NgxGalleryImage[] = new Array();
+  mobileWidth;
 
-  constructor(private galleryService: GalleryService, private storage: AngularFireStorage) {
 
+  constructor(private galleryService: GalleryService, private storage: AngularFireStorage, private auth: AuthService) {
 
     for (var j = 30; j > 0; j--) {
       let url = `../../assets/img/WBFF/wbff${j}.JPG`
@@ -64,13 +66,17 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
 
+    if(this.auth.isMobile()){
+      this.mobileWidth = { "width": "900px" };
+    }
+
     this.galleryOptions = [
 
       // max-width 800
       {
         //breakpoint: 800,
-        width: '900px',
-        height: '1400px',
+        width: '800px',
+        height: '1200px',
         imagePercent: 100,
         thumbnailsPercent: 20,
         thumbnailsMargin: 20,

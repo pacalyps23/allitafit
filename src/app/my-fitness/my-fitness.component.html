@@ -1,0 +1,243 @@
+<div [ngStyle]="mobileWidth">
+  <section class="probootstrap-intro probootstrap-intro-inner"
+    style="background-image: url(../../assets/img/myFitness.jpg);" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 probootstrap-intro-text">
+          <h1 data-animate-effect="fadeIn" class="fitTitle">My Fitness</h1>
+          <div class="probootstrap-subtitle probootstrap-animate" data-animate-effect="fadeIn">
+            <h2>Alla Vasylyga</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main>
+    <section id="next-section" class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div *ngIf="noProfile" class="card-header h4 bg-primary">
+              <h4 style="text-align:center">Setup My Profile</h4>
+              <form #historyForm="ngForm">
+                <div class="form-group">
+                  <label for="fname">First Name</label>
+                  <input type="text" class="form-control" id="fname" required minlength="2" [(ngModel)]="profile.fname"
+                    name="fname">
+                </div>
+                <div class="form-group">
+                  <label for="lname">Last Name</label>
+                  <input type="text" class="form-control" id="lname" required minlength="2" [(ngModel)]="profile.lname"
+                    name="lname">
+                </div>
+                <div class="form-group">
+                  <label for="age">DOB</label>
+                  <input type="date" class="form-control" id="dob" required [(ngModel)]="profile.dob" name="dob">
+                </div>
+                <div class="form-group">
+                  <label for="sex">Sex</label>
+                  <select type="multiple" class="form-control" id="sex" required [(ngModel)]="profile.sex" name="sex">
+                    <option value="Male" selected="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" class="form-control" id="phone" required [(ngModel)]="profile.phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="avgWeight">Average Weight</label>
+                    <input type="number" class="form-control" id="avgWeight" required [(ngModel)]="profile.avgWeight"
+                      name="avgWeight">
+                  </div>
+                <div class="form-group">
+                  <label for="activity">How would you describe your level of daily activities?
+                  </label>
+                  <select type="multiple" class="form-control" id="activity" required [(ngModel)]="profile.activity"
+                    name="activity">
+                    <option value="Sendentary" selected="Sendentary">Sendentary</option>
+                    <option value="LightlyActive">Lightly Active (office work)</option>
+                    <option value="Active">Active (manual labor)</option>
+                    <option value="Very Active">Very Active (construction)</option>
+                  </select>
+                </div>
+  
+                <div class="form-group">
+                  <label for="goals">What are your fitness goals?</label>
+                  <textarea rows="3" class="form-control" [(ngModel)]="profile.goals" name="goals"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="diet">Tell me about your diet (eating habits, eating out, alcohal & water intake)?</label>
+                  <textarea rows="3" class="form-control" id="diet" required [(ngModel)]="profile.diet"
+                    name="diet"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="health">Health history?</label>
+                    <div style="padding-left:10%">
+                      <div class="row">
+                        <div *ngFor="let item of health" class="col-4">
+                          <input type="checkbox" name="health[]" value="{{item.name}}" [(ngModel)]="item.selected">
+                          {{item.name}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="health[15].selected" class="form-group">
+                    <label for="other">List Others</label>
+                    <input type="text" class="form-control" name="other" [(ngModel)]="profile.other">
+                  </div>
+                  <div *ngIf="health[16].selected" class="form-group">
+                      <label for="other">List Medications</label>
+                      <input type="text" class="form-control" name="meds" [(ngModel)]="profile.meds">
+                    </div>
+                    <div class="form-group">
+                        <label for="notRecommended">Are there any exercies that are contraindicated or not recommended by physician or physical therapist?</label>
+                        <textarea rows="3" class="form-control" [(ngModel)]="profile.notRecommended" name="notRecommended"></textarea>
+                    </div>
+                <div class="form-group">
+                  <label for="exercise">Are you currently involved in regular exercise? What is your training program now?</label>
+                  <textarea rows="3" class="form-control" id="exercise" required [(ngModel)]="profile.exercise"
+                    name="exercise"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="program">What exercises have you tried before and what results did you have?</label>
+                  <textarea rows="3" class="form-control" id="program" required [(ngModel)]="profile.program"
+                    name="program"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="discipline">Did you start exercise but then found youself unable to stick to them?</label>
+                  <textarea rows="3" class="form-control" id="discipline" required [(ngModel)]="profile.discipline"
+                    name="discipline"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="reachGoals">When you do successfully reach your goals, in what way(s) will life be different?</label>
+                  <div style="display:flex">
+                    1. <textarea rows="1" class="form-control" [(ngModel)]="profile.reachGoals[0]"
+                      name="reachGoals[0]"></textarea>
+                  </div>
+                  <div style="display:flex">
+                    2. <textarea rows="1" class="form-control" [(ngModel)]="profile.reachGoals[1]"
+                      name="reachGoals[1]"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="reachGoals">What steps can you take to reach those goals?</label>
+                  <div style="display:flex">
+                    1. <textarea rows="1" class="form-control" [(ngModel)]="profile.steps[0]"
+                      name="steps[0]"></textarea>
+                  </div>
+                  <div style="display:flex">
+                    2. <textarea rows="1" class="form-control" [(ngModel)]="profile.steps[1]"
+                      name="steps[1]"></textarea>
+                  </div>
+                  <div style="display:flex">
+                    3. <textarea rows="1" class="form-control" [(ngModel)]="profile.steps[2]"
+                      name="steps[2]"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="time">How much time are you willing to devote to an exercise program?</label>
+                  <textarea rows="3" class="form-control" [(ngModel)]="profile.time" name="time"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="together">What can we do together to make our exercise program more enjoyable?</label>
+                    <textarea rows="3" class="form-control" [(ngModel)]="profile.together" name="together"></textarea>
+                  </div>
+                <div style="text-align:center">
+                  <button type="button" class="btn btn-primary" (click)="submitProfile(profile, health)">Create
+                    Profile</button>
+                </div>
+              </form>
+
+            </div>
+
+
+            <div *ngIf="!noProfile" class="card mb-3" style="text-align:center">
+              <div class="card-header bg-primary">My Profile</div>
+              <p>Name: {{profile.fname}} {{profile.lname}}</p>
+              <p>DOB: {{profile.dob}}</p>
+              <p>Sex: {{profile.sex}}</p>
+              <p>Email: {{profile.email}} </p>
+              <p>Phone: {{profile.phone}}</p>
+              <p>Average Weight: {{profile.avgWeight}}</p>
+              <p>Activity Level: {{profile.activity}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container3">
+        <h2 style="text-align:center">Weight Tracker</h2>
+
+        <div class="row">
+          <div *ngIf="!noProfile" style="text-align:center" class="col-3">
+            <form #historyForm="ngForm" (ngSubmit)="submitWeight(historyForm.form);">
+              <label for="weight">Enter Today's Weight</label>
+              <input type="text" class="form-control" name="weight" ngModel #nameField="ngModel" required minlength="2">
+              <button class="btn btn-success" [disabled]="!historyForm.valid">Submit Weight</button>
+            </form>
+          </div>
+          <div *ngIf="noProfile" style="text-align:center" class="col-3">
+            <h3>Create your profile to begin trakcing your weight</h3>
+          </div>
+
+          <div class="col-8">
+            <app-my-chart></app-my-chart>
+          </div>
+        </div>
+
+        <div style="padding-top:10%" class="row probootstrap-gutter60 mb50">
+          <div class="col-md-4">
+            <h3>How is BMI used?</h3>
+            A high BMI can be an indicator of high body fatness. BMI can be used as a screening tool but is not
+            diagnostic of the body fatness or health of an individual. To determine if a high BMI is a health risk, a
+            healthcare provider would need to perform further assessments. These assessments might include skinfold
+            thickness measurements, evaluations of diet, physical activity, family history, and other appropriate health
+            screenings.
+          </div>
+
+          <div class="probootstrap-heading card mb-3" style="text-align:center">
+            <div class="card-header bg-primary">Body Mass Index Calculator</div>
+            <div class="card-body bg-white">
+              <p>Enter your height: <input type="text" id="height" [(ngModel)]="bmi.height" />
+                <select type="multiple" id="heightunits" [(ngModel)]="bmi.heightUnit">
+                  <option value="metres" selected="selected">metres</option>
+                  <option value="inches">inches</option>
+                </select>
+              </p>
+              <p>Enter your weight: <input type="text" id="weight" [(ngModel)]="bmi.weight" />
+                <select type="multiple" id="weightunits" [(ngModel)]="bmi.weightUnit">
+                  <option value="kg" selected="selected">kilograms</option>
+                  <option value="lb">pounds</option>
+                </select>
+              </p>
+              <button type="submit" class="btn btn-primary" (click)="cumputeBMI(bmi)">Compute BMI</button>
+              <h4>Your BMI is: <span id="output">{{output}}</span></h4>
+              <h4>This means you are: {{message}} </h4>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h3>What is BMI?</h3>
+            BMI is a person’s weight in kilograms divided by the square of height in meters. BMI does not measure body
+            fat directly, but research has shown that BMI is moderately correlated with more direct measures of body fat
+            obtained from skinfold thickness measurements, bioelectrical impedance, densitometry (underwater weighing),
+            dual energy x-rayabsorptiometry (DXA) and other methods. Furthermore, BMI appears to be as strongly
+            correlated with various metabolic and disease outcome as are these more direct measures of body fatness. In
+            general, BMI is an inexpensive and easy-to-perform method of screening for weight category, for example
+            underweight, normal or healthy weight, overweight, and obesity.
+          </div>
+
+        </div>
+        <
+
+      </div>
+    </section>
+
+  </main>
+
+  <h3 style="text-align:center; padding-bottom: 40px;">Services Coming Soon!</h3>
+
+
+</div>

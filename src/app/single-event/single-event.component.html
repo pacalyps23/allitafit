@@ -1,0 +1,37 @@
+<div class="container" style="text-align: center;">
+  <h1>{{event.data.title}}</h1>
+  <p> {{event.data.description}}</p>
+
+  <div class="card" style="width: 70%; display: inline-flex;">
+    <img [src]="event.data.thumbnailUrl">
+    <div class="card-body">
+      <h5 class="card-title">Location:</h5>
+      <p class="card-text">{{event.data.location}}</p>
+      <h5 class="card-title">Date:</h5>
+      <p class="card-text">{{event.data.date}}</p>
+      <h5 class="card-title">What You Need:</h5>
+      <p>{{event.data.essentials}}</p>
+      <h5>Must complete profile before you can sign up for this event!</h5>
+      <a routerLink="/my fitness"><button *ngIf="loggedIn  && !myProfile" type="button"
+          class="btn btn-lg btn-block btn-primary">Complete Profile</button></a>
+      <a routerLink="/login"><button *ngIf="!loggedIn && !myProfile" type="button"
+          class="btn btn-lg btn-block btn-primary">Login</button></a>
+      <button *ngIf="myProfile" class="btn btn-primary" (click)="signUpEvent(event.id)">Sign Up</button>
+    </div>
+  </div>
+  <div class="row rowProp">
+      <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+
+        <div class="item" *ngFor="let image of event.data.pics">
+          <div class="thumbnail-image">
+            <div>
+              <img src={{image}} class="img-responsive img-rounded">
+            </div>
+          </div>
+        </div>
+      </owl-carousel>
+    </div>
+
+  <div style="padding-bottom: 8rem"></div>
+  
+</div>

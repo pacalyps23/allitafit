@@ -7,3 +7,8 @@
     padding-top: 20px;
     margin: 100px;
 }
+
+.myTitle{
+    color: gold;
+    text-shadow: -6px 7px tomato;
+}

@@ -1,5 +1,5 @@
 <!-- START: header -->
-  <header class="probootstrap-header">
+  <header [ngStyle]="header" class="probootstrap-header">
   <div class="container-fluid">
     <a href="index.html" class="probootstrap-logo">AllitaFit</a>
 
@@ -9,18 +9,19 @@
         <li><a routerLink="/home" [routerLinkActive]="['is-active']">Home</a></li>
         <li><a routerLink="/blog" [routerLinkActive]="['is-active']">Blog</a></li>
         <li><a routerLink="/gallery" [routerLinkActive]="['is-active']">Gallery</a></li>
-        <li><a routerLink="/programs" [routerLinkActive]="['is-active']">Programs</a></li>
+        <li><a routerLink="/events" [routerLinkActive]="['is-active']">Events</a></li>
         <li><a routerLink="/testimonials" [routerLinkActive]="['is-active']">Testimonials</a></li>
-        <li *ngIf="isLogged"><a routerLink="/cardio" [routerLinkActive]="['is-active']">Cardio-Challenge</a></li>
+        <li *ngIf="isLogged"><a routerLink="/cardio" [routerLinkActive]="['is-active']">Step-Challenge</a></li>
+        <li *ngIf="isLogged"><a routerLink="/my fitness" [routerLinkActive]="['is-active']">My Fitness</a></li>
         <li><a routerLink="/contact" [routerLinkActive]="['is-active']">Contact</a></li>
         <li *ngIf="isAdmin"><a routerLink="/admin" [routerLinkActive]="['is-active']">Admin</a></li>
-        <li class="email">{{email}}</li>
+        
       </ul>
-      <ul class="probootstrap-header-social">
+      <ul class="probootstrap-header-social" [ngStyle]="social">
         <li><a href="https://www.facebook.com/Allitafit/" target="blank"><i class="fa fa-facebook icons"></i></a></li>
         <li><a href="https://www.instagram.com/allitafit_wbffpro/" target="blank"><i
               class="fa fa-instagram log"></i></a></li>
-        <li *ngIf="isLogged"><a (click)="logout()"><i class="fa fa-sign-out icons"></i></a></li>
+        <li *ngIf="isLogged"><a (click)="logout()"><i class="fa fa-sign-out icons" style="text-shadow: 2px 2px white"></i></a></li>
       </ul>
     </nav>
   </div>

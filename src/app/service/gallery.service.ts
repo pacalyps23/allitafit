@@ -21,14 +21,7 @@ export class GalleryService implements OnInit {
   }
 
   getWbffImages() {
-    for (var i = 3; i > 0; i--) {
-      var reference = this.storage.ref(`gallery/WBFF/wbff${i}.JPG`);
-      reference.getDownloadURL().subscribe(data => {
-        console.log(data);
-        this.wbffImages.push(data);
-      });
-    }
-    return this.wbffImages;
+    location.reload();
   }
 
 }

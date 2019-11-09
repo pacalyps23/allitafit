@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ArticleService implements OnInit {
   articleRef: AngularFirestoreCollection<Article>;
-  articles: any;
+  //articles: any;
   post: Observable<any>;
   
 
@@ -18,11 +18,11 @@ export class ArticleService implements OnInit {
   }
 
   ngOnInit() {
-    this.articles = this.getArticles();
+    //this.articles = this.getArticles();
   }
 
   getArticles(): any {
-    this.articleRef = this.db.collection('article');
+    //this.articleRef = this.db.collection('article');
     return this.articleRef.snapshotChanges()
       .map(actions => {
         return actions.map(a => {

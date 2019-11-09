@@ -1,43 +1,52 @@
-<section class="probootstrap-intro probootstrap-intro-inner" style="background-image: url(assets/img/photography-banner.jpg);"
-  data-stellar-background-ratio="0.5">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-7 probootstrap-intro-text">
-        <h1 data-animate-effect="fadeIn" class="galleryTitle">Gallery</h1>
-        <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
-          <h2>Alla Vasylyga</h2>
+<div [ngStyle]="mobileWidth">
+  <section class="probootstrap-intro probootstrap-intro-inner"
+    style="background-image: url(assets/img/photography-banner.jpg);" data-stellar-background-ratio="0.5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 probootstrap-intro-text">
+          <h1 data-animate-effect="fadeIn" class="galleryTitle">Gallery</h1>
+          <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
+            <h2>Alla Vasylyga</h2>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<main class="mainClass">
+  </section>
+  <main class="mainClass">
 
-     <div>
-      <section id="next-section" class="probootstrap-section">
-        <div class="container">
-          <h2 class="myTitle">WBFF</h2>
-          <ngx-gallery [options]="galleryOptions" [images]="wbffGalleryImages"></ngx-gallery>
-        </div>
-      </section>
-    </div> 
-
-    <div>
-        <section id="next-section" class="probootstrap-section">
+    <div style="background-color:rgb(228, 228, 228)">
+      <tabs>
+        <tab tabTitle="WBFF">
+          <section id="next-section" class="probootstrap-section">
             <div class="container">
-              <h2 class="myTitle">FITNESS</h2>
-              <ngx-gallery [options]="galleryOptions" [images]="fitGalleryImages"></ngx-gallery>
+              <h2 class="myTitle">WBFF</h2>
+              <ngx-gallery [options]="galleryOptions" [images]="wbffGalleryImages"></ngx-gallery>
             </div>
           </section>
-    </div> 
-
-    <div>
-      <section id="next-section" class="probootstrap-section">
-          <div class="container">
-            <h2 class="myTitle">STRONGER TOGETHER</h2>
-            <ngx-gallery [options]="galleryOptions" [images]="stGalleryImages"></ngx-gallery>
+        </tab>
+        <tab style="background-color:darkgrey!important;" tabTitle="FITNESS">
+          <div>
+            <section id="next-section" class="probootstrap-section">
+              <div class="container">
+                <h2 class="myTitle">FITNESS</h2>
+                <ngx-gallery [options]="galleryOptions" [images]="fitGalleryImages"></ngx-gallery>
+              </div>
+            </section>
           </div>
-        </section>
-      </div>
+        </tab>
+        <tab tabTitle="STRONGER TOGETHER">
+          <div>
+            <section id="next-section" class="probootstrap-section">
+              <div class="container">
+                <h2 class="myTitle">STRONGER TOGETHER</h2>
+                <ngx-gallery [options]="galleryOptions" [images]="stGalleryImages"></ngx-gallery>
+              </div>
+            </section>
+          </div>
+        </tab>
+      </tabs>
 
-</main>
+    </div>
+
+  </main>
+</div>
