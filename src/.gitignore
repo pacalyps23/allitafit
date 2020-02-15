@@ -1,5 +1,6 @@
 #ignore env
 **/src/environments/*
+/src/environments/
 
 #ignore modules
 node_modules/
