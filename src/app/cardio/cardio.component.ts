@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Calorie } from '../cardio/calorie';
 import { CalorieService } from '../service/calorie.service';
 import { AuthService } from '../service/auth.service';
-import { auth } from 'firebase';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { e, b } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-cardio',
@@ -12,7 +10,7 @@ import { e, b } from '@angular/core/src/render3';
   styleUrls: ['./cardio.component.css']
 })
 export class CardioComponent implements OnInit {
-  public calorie = new Calorie("", "", null, null, null, null, null, null, null, null);
+  public calorie = new Calorie("", null, null, null, null, null, null, null, null);
   private user;
   public steps = new Array<Calorie>();
   calorieForm: FormGroup;

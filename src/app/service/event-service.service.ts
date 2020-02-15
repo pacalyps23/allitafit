@@ -31,7 +31,6 @@ export class EventService implements OnInit{
 
   addEvent(event: Event){
     var data = JSON.parse(JSON.stringify(event));
-    console.log("adding event");
     this.eventRef.add(data).then(_=> alert("Added Event"))
       .catch(error => {
         alert(`Error uploading: ${error}`);
@@ -39,7 +38,9 @@ export class EventService implements OnInit{
   }
 
   updateEvent(id, article) {
-    this.db.collection('events').doc(id).update(article);
+    this.db.collection('events').doc(id).update(article)
+      .then(_=> alert("Event Updated Successfully"))
+      .catch(err => alert(`Error Updating Event: ${err}`))
   }
 
   getEvent(id): Observable<any> {
@@ -47,7 +48,7 @@ export class EventService implements OnInit{
   }
 
   deleteEvent(id): void {
-    this.db.collection('events').doc(id).delete().then(_=> alert("Deledte Event"))
+    this.db.collection('events').doc(id).delete().then(_=> alert("Deleted Event"))
   }
 
   

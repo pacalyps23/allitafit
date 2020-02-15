@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { NgModule } from '@angular/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
 import { ContactService } from './service/contact.service';
@@ -33,7 +36,6 @@ import { ArticleService } from './service/article-service.service';
 import { GalleryService } from './service/gallery.service';
 import { EventService } from './service/event-service.service';
 import { DropZoneDirective } from './drop-zone.directive';
-//import { Routes, RouterModule } from '@angular/router';
 import { Routes, RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { TabModule } from 'angular-tabs-component';
@@ -45,6 +47,9 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { LibraryComponent } from './library/library.component';
 import { SingleEventComponent } from './single-event/single-event.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
+import { EditArticleComponent } from './edit-article/edit-article.component';
+import { DeleteArticleComponent } from './delete-article/delete-article.component';
+import { EditCalorieComponent } from './edit-calorie/edit-calorie.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyAOV571ckUC5u6awW96SanIHesAmhnb6D4",
@@ -92,9 +97,15 @@ const appRoutes: Routes = [
     LibraryComponent,
     SingleEventComponent,
     EditEventComponent,
+    EditArticleComponent,
+    DeleteArticleComponent,
+    EditCalorieComponent,
   ],
   entryComponents:[
-    EditEventComponent
+    EditEventComponent,
+    EditArticleComponent,
+    DeleteArticleComponent,
+    EditCalorieComponent
   ],
   imports: [
     BrowserModule,
@@ -116,6 +127,11 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     TabModule,
     ChartsModule,
+    MatDialogModule,
+    MatInputModule, 
+    MatButtonModule, 
+    MatCardModule, 
+    MatFormFieldModule,
   ],
   providers: [
     {provide: APP_BASE_HREF, useValue: '/'},

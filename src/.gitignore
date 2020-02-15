@@ -1,0 +1,10 @@
+#ignore env
+!/environments
+/environments/
+environments/
+
+#ignore modules
+node_modules/
+
+#ignore dist
+dist/

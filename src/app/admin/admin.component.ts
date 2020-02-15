@@ -10,9 +10,13 @@ import { Profile } from 'selenium-webdriver/firefox';
 import { EventService } from '../service/event-service.service';
 import { Event } from '../single-event/event.model';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { EditEventComponent } from '../edit-event/edit-event.component';
-
+import { EditArticleComponent } from '../edit-article/edit-article.component';
+import { DeleteArticleComponent } from '../delete-article/delete-article.component';
+import { Calorie } from '../cardio/calorie';
+import { CalorieService } from '../service/calorie.service';
+import { EditCalorieComponent } from '../edit-calorie/edit-calorie.component';
 
 @Component({
   selector: 'app-admin',
@@ -22,9 +26,19 @@ import { EditEventComponent } from '../edit-event/edit-event.component';
 export class AdminComponent implements OnInit {
   public mobileWidth;
   public article = new Article(null, null, null, null, null, new Array);
-  public event = new Event({ title: null, date: null, description: null, thumbnailUrl: null, location: null, 
-    pics: [], signUps: []});
-  articles: any;
+  public event = new Event({
+    title: null, date: null, description: null, thumbnailUrl: null, location: null,
+    pics: [], vids: [], signUps: []
+  });
+  public articles: Array<Article>;
+  public calorie = new Calorie(
+    null,
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null, null],
+    0, 0, 0, 0)
+
   // Main task 
   task: AngularFireUploadTask;
   // Progress monitoring
@@ -39,13 +53,15 @@ export class AdminComponent implements OnInit {
   public bootUsers;
   public events = Array<Event>();
   public invoiceForm: FormGroup;
+  public calories = Array<Calorie>();
 
-  constructor(public articleService: ArticleService, 
-    private db: AngularFirestore, 
+  constructor(public articleService: ArticleService,
+    private db: AngularFirestore,
     private storage: AngularFireStorage,
     private profileService: ProfileService,
     private auth: AuthService,
     private eventService: EventService,
+    private calService: CalorieService,
     private _fb: FormBuilder,
     private dialog: MatDialog) {
 
@@ -53,7 +69,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.auth.isMobile()){
+    if (this.auth.isMobile()) {
       this.mobileWidth = {
         "width": "900px",
       }
@@ -71,14 +87,90 @@ export class AdminComponent implements OnInit {
       this.events = data;
     });
 
+    this.calService.getAllCaloreis().subscribe(data => {
+      this.calories = data;
+    });
+
     this.invoiceForm = this._fb.group({
       itemRows: this._fb.array([this.initItemRows()])
     });
   }
 
-  openDialog() {
-    this.dialog.open(EditEventComponent);
+  editEventDialog(event: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '800px';
+    dialogConfig.width = '600px';
+
+    dialogConfig.data = event.data;
+
+    const dialogRef = this.dialog.open(EditEventComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data != undefined || data != null) {
+        this.eventService.updateEvent(event.id, data);
+      }
+    });
   }
+
+  editArticleDialog(article: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '800px';
+    dialogConfig.width = '600px';
+
+    dialogConfig.data = article.data;
+
+    const dialogRef = this.dialog.open(EditArticleComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data != undefined || data != null) {
+        this.articleService.updateItem(article.id, data);
+      }
+    });
+  }
+
+  deleteArticleDialog(id: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = id;
+
+    const dialogRef = this.dialog.open(DeleteArticleComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data != undefined || data != null) {
+        this.articleService.deleteItem(id);
+      }
+    });
+  }
+
+  editCalorieDialog(calorie: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.height = '800px';
+    dialogConfig.width = '600px';
+
+    dialogConfig.data = calorie.data;
+
+    const dialogRef = this.dialog.open(EditCalorieComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data != undefined || data != null) {
+        this.calService.updateCalorie(data, calorie.id);
+      }
+    });
+  }
+
+  deleteCalorie(id){
+    this.calService.deleteCalorie(id);
+  }
+
+
 
   get formArr() {
     return this.invoiceForm.get('itemRows') as any;
@@ -104,10 +196,6 @@ export class AdminComponent implements OnInit {
     this.articleService.addItem(article);
   }
 
-  deleteArticle(postId) {
-    this.articleService.deleteItem(postId);
-  }
-
   addEvent(event: Event) {
     this.invoiceForm.value.itemRows.map(data => {
       console.log(data.itemname);
@@ -116,8 +204,12 @@ export class AdminComponent implements OnInit {
     this.eventService.addEvent(event);
   }
 
-  deleteEvent(postId){
+  deleteEvent(postId) {
     this.eventService.deleteEvent(postId);
+  }
+
+  addCalorie(calorie) {
+    this.calService.addCalories(calorie);
   }
 
 
@@ -144,15 +236,15 @@ export class AdminComponent implements OnInit {
     // The main task
     this.task = this.storage.upload(path, file)
     this.storage.ref(path).put(file)
-    .then(snapshot => {
-      return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
-  }).then(downloadURL => {
-     this.downloadURL = downloadURL;
-     return downloadURL;
-  }).catch(error => {
-     // Use to signal error if something goes wrong.
-     console.log(`Failed to upload file and get link - ${error}`);
-  });
+      .then(snapshot => {
+        return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
+      }).then(downloadURL => {
+        this.downloadURL = downloadURL;
+        return downloadURL;
+      }).catch(error => {
+        // Use to signal error if something goes wrong.
+        console.log(`Failed to upload file and get link - ${error}`);
+      });
 
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
@@ -177,15 +269,15 @@ export class AdminComponent implements OnInit {
     // The main task
     this.task = this.storage.upload(path, file)
     this.storage.ref(path).put(file)
-    .then(snapshot => {
-      return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
-  }).then(downloadURL => {
-     this.downloadURL = downloadURL;
-     return downloadURL;
-  }).catch(error => {
-     // Use to signal error if something goes wrong.
-     console.log(`Failed to upload file and get link - ${error}`);
-  });
+      .then(snapshot => {
+        return snapshot.ref.getDownloadURL();   // Will return a promise with the download link
+      }).then(downloadURL => {
+        this.downloadURL = downloadURL;
+        return downloadURL;
+      }).catch(error => {
+        // Use to signal error if something goes wrong.
+        console.log(`Failed to upload file and get link - ${error}`);
+      });
 
     // Progress monitoring
     this.percentage = this.task.percentageChanges();

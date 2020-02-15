@@ -31,8 +31,7 @@ export class CalorieService {
 
    addCalories(calorie: Calorie){
      var data = JSON.parse(JSON.stringify(calorie));
-     this.calorieRef.add(data)
-     .then(_=> this.toastr.success("Calories Submitted"))
+     this.calorieRef.add(data).then(_=> this.toastr.success("Calories Submitted"))
      .catch(_=> this.toastr.error("Cannot Send Calories"));
    }
 
@@ -41,11 +40,12 @@ export class CalorieService {
    }
 
    deleteCalorie(postId){
-     this.db.collection('calorie').doc(postId).delete().then(_ => this.toastr.success("Delete Article"));
+     this.db.collection('calorie').doc(postId).delete().then(_ => this.toastr.success("Delete Article"))
+     .catch(_=> this.toastr.error("Could not Delete"));
    }
 
-   updateCalories(calorie){
-     console.log(calorie);
-     this.db.collection('calorie').doc(calorie.id).update(calorie).catch(_=> this.toastr.error("Eror Updating")).then(_=> this.toastr.success("Updated Successfully"));
+   updateCalorie(calorie, id){
+     this.db.collection('calorie').doc(id).update(calorie).catch(_=> this.toastr.error("Eror Updating"))
+     .then(_=> this.toastr.success("Updated Successfully"));
    }
 }

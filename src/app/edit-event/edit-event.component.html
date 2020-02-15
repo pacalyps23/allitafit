@@ -1,41 +1,35 @@
-<h1 md-dialog-title class="primary-color">Edit Event</h1>
-    <md-dialog-content class="accent-color">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Edit Event</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <!-- This is where you need to add your login form -->
         <div class="form-group">
-            <label for="name">Title</label>
-            <input type="text" class="form-control" id="title" required [(ngModel)]="event.title" name="title">
-          </div>
+        <input matInput type="text" size="50" class="form-control" placeholder="Title" required [(ngModel)]="event.title">
+      </div>
 
-          <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" id="date" required [(ngModel)]="event.date" name="date">
-          </div>
+      <div class="form-group">
+        <input matInput type="date" class="form-control" placeholder="Date" required [(ngModel)]="event.date">
+      </div>
 
-          <div class="form-group">
-            <label for="thumbnailUrl">Thumbnail URL</label>
-            <input type="text" class="form-control" id="thumbnailUrl" required [(ngModel)]="event.thumbnailUrl"
-              name="thumbnailUrl">
-          </div>
+     <div class="form-group">
+        <input matInput type="text" size="50" class="form-control" placeholder="Thumnail Url" required [(ngModel)]="event.thumbnailUrl">
+      </div>
 
-          <div class="form-group">
-            <label for="description">Description</label>
-            <textarea rows="5" class="form-control" id="description" required [(ngModel)]="event.description"
-              name="description"></textarea>
-          </div>
+      <div class ="form-group">
+        <textarea rows="6" cols="50" class="form-control" matInput placeholder="Description" required [(ngModel)]="event.description"></textarea>
+      </div>
 
-          <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" class="form-control" id="location" required [(ngModel)]="event.location"
-                name="location">
-            </div>
+      <div class="form-group">
+          <input  matInput  class="form-control" placeholder="Location" [(ngModel)]="event.location" name="location"  required>
+      </div>
 
-            <div class="form-group">
-                <label for="essentials">Essentials</label>
-                <textarea rows="3" class="form-control" id="essentials" required [(ngModel)]="event.essentials"
-                  name="essentials"></textarea>
-              </div>
-    </md-dialog-content>
-    <md-dialog-actions>
-      <button md-raised-button color="primary" md-dialog-close>
-        close button
-      </button>  
-    </md-dialog-actions>
+      <div class="form-group">
+        <textarea rows="3" class="form-control" placeholder="Essentials" required [(ngModel)]="event.essentials"></textarea>
+      </div>
+  </mat-card-content>
+  <mat-card-actions>
+      <button  mat-raised-button (click)="close()" class="btn btn-danger">Close</button>
+      <button mat-raised-button (click)="save()" class="btn btn-success">Save</button>
+  </mat-card-actions>
+</mat-card>

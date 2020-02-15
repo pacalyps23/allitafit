@@ -41,7 +41,9 @@ export class ArticleService implements OnInit {
   }
 
   updateItem(postId, article) {
-    this.db.collection('article').doc(postId).update(article).then(_ => alert("Added Article"));
+    this.db.collection('article').doc(postId).update(article)
+      .then(_ => alert("Updated Article"))
+      .catch(err => alert(`Error Updating Article: ${err}`));
   }
 
   getItem(postId): Observable<any> {

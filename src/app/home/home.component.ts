@@ -16,6 +16,9 @@ export class HomeComponent implements OnInit {
 
   constructor(private sanitizer: DomSanitizer, private auth: AuthService) { 
     this.mySlideImages = [
+      sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/6NyO0U2EDmA"),
+      sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/k5Se70YaOtI"),
+      sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/Hx3JHeIBmo8"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/aV9wRW2kFLk"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/t21UVXqdIF8"),
       sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/F_rsREk7MAg"),

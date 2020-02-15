@@ -19,19 +19,38 @@
       <button *ngIf="myProfile" class="btn btn-primary" (click)="signUpEvent(event.id)">Sign Up</button>
     </div>
   </div>
-  <div class="row rowProp">
-      <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
 
-        <div class="item" *ngFor="let image of event.data.pics">
-          <div class="thumbnail-image">
-            <div>
-              <img src={{image}} class="img-responsive img-rounded">
-            </div>
-          </div>
+  <div class="row rowProp">
+    <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+      <div class="item" *ngFor="let image of event.data.pics">
+        <div class="thumbnail-image">
+          <img src={{image}} class="img-responsive img-rounded">
         </div>
-      </owl-carousel>
-    </div>
+      </div>
+
+      <div class="item" *ngFor="let vid of event.data.vids;">
+        <div style="padding-left: 220px;" class="thumbnail-image" *ngIf="event.data.title === 'Healthy Cooking with AllitaFit'">
+          <iframe width="700" height="400" src='https://www.youtube.com/embed/PQM0xOojU5U' frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- <div class="item" *ngFor="let vid of event.data.vids;">
+        <div style="padding-left: 220px;" class="thumbnail-image" *ngIf="event.data.title === 'Healthy Cooking with AllitaFit'">
+          <youtube-player
+            videoId="dQw4w9WgXcQ"
+            suggestedQuality="highres"
+            [height]="600"
+            [width]="1080"
+            [startSeconds]="43"
+            [endSeconds]="60">
+          </youtube-player>
+        </div>
+      </div> -->
+
+    </owl-carousel>
+  </div>
 
   <div style="padding-bottom: 8rem"></div>
-  
+
 </div>

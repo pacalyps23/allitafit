@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HistoryService } from '../service/history.service';
 import { AuthService } from '../service/auth.service';
-import { element } from '@angular/core/src/render3/instructions';
+//import { element } from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-my-chart',

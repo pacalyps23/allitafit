@@ -3,7 +3,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 import { Profile } from '../my-fitness/profile';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { e } from '@angular/core/src/render3';
+//import { e } from '@angular/core/src/render3';
 
 @Injectable({
   providedIn: 'root'

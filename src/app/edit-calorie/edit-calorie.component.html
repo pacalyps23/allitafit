@@ -1,0 +1,40 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Edit Calories</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <!-- This is where you need to add your login form -->
+        <div class="form-group">
+            <input matInput type="text" size="50" class="form-control" placeholder="Name" required
+                [(ngModel)]="calorie.name">
+        </div>
+
+        <h3>Week 1</h3>
+        <div class="form-group" *ngFor="let day of calorie.week1; index as i">
+            <input matInput type="number" class="form-control" placeholder="Empty Calories" required
+                [(ngModel)]="calorie.week1[i]">
+        </div>
+
+        <h3>Week 2</h3>
+        <div class="form-group" *ngFor="let day of calorie.week2; index as i">
+            <input matInput type="number" class="form-control" placeholder="Empty Calories" required
+                [(ngModel)]="calorie.week2[i]">
+        </div>
+
+        <h3>Week 3</h3>
+        <div class="form-group" *ngFor="let day of calorie.week3; index as i">
+            <input matInput type="number" class="form-control" placeholder="Empty Calories" required
+                [(ngModel)]="calorie.week3[i]">
+        </div>
+
+        <h3>Week 4</h3>
+        <div class="form-group" *ngFor="let day of calorie.week4; index as i">
+            <input matInput type="number" class="form-control" placeholder="Empty Calories" required
+                [(ngModel)]="calorie.week4[i]">
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="close()" class="btn btn-danger">Close</button>
+        <button mat-raised-button (click)="save()" class="btn btn-success">Save</button>
+    </mat-card-actions>
+</mat-card>

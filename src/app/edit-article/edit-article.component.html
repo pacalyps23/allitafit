@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Edit Article</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- This is where you need to add your login form -->
+          <div class="form-group">
+          <input matInput type="text" size="50" class="form-control" placeholder="Title" required [(ngModel)]="article.title">
+        </div>
+  
+        <div class="form-group">
+          <input matInput type="date" class="form-control" placeholder="Date" required [(ngModel)]="article.date">
+        </div>
+  
+       <div class="form-group">
+          <input matInput type="text" size="50" class="form-control" placeholder="Thumnail Url" required [(ngModel)]="article.thumbnailUrl">
+        </div>
+  
+        <div class ="form-group">
+          <textarea rows="6" cols="50" class="form-control" matInput placeholder="Description" required [(ngModel)]="article.description"></textarea>
+        </div>
+  
+        <div class="form-group">
+            <input  matInput  class="form-control" placeholder="File Url" [(ngModel)]="article.fileUrl" required>
+        </div>
+  
+        <div class="form-group">
+          <input matInput type="number" class="form-control" placeholder="Votes" required [(ngModel)]="article.votes">
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button  mat-raised-button (click)="close()" class="btn btn-danger">Close</button>
+        <button mat-raised-button (click)="save()" class="btn btn-success">Save</button>
+    </mat-card-actions>
+  </mat-card>

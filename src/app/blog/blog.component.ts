@@ -32,7 +32,6 @@ export class BlogComponent implements OnInit {
   ngOnInit() {
    this.articles = this.articleService.getArticles();
    this.articles = this.sortedArticles();
-    
   }
 
   sortedArticles(): any[]{

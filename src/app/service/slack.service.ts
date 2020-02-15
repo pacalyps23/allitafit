@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { concat } from 'bytebuffer';
+import { Contact } from '../contact/contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SlackService {
-  webhook: string = 'https://hooks.slack.com/services/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';
-  channel: string = 'events';
   bot: string = 'AllitaFit.com'
   emoji: string = 'tada';
 
   constructor(private http: HttpClient) { }
 
-  postMessage(user, title){
+  postEvent(webhook, channel, user, title){
 
     const options = {
       headers: new HttpHeaders(
@@ -20,11 +20,27 @@ export class SlackService {
       )};
 
       const message = {
-        channel: this.channel,
+        channel: channel,
         username: this.bot,
         text: `${user} has signed up for *${title}*!`,
         icon_emoji: this.emoji
       }
-    this.http.post(this.webhook, message, options).subscribe();
+    this.http.post(webhook, message, options).subscribe();
+  }
+
+  postContact(webhook, channel, contact: Contact){
+
+    const options = {
+      headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+
+      const message = {
+        channel: channel,
+        username: this.bot,
+        text: `*From*: ${contact.first} ${contact.last}\n*Email*: ${contact.email}\n*Subject*: ${contact.subject}\n*Message*: ${contact.message}`,
+        icon_emoji: 'mailbox'
+      }
+      this.http.post(webhook, message, options).subscribe();
   }
 }

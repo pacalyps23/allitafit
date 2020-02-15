@@ -28,7 +28,6 @@ export class ContactService implements OnInit {
       .map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Contact;
-          console.log(data);
           const id = a.payload.doc.id;
           return { id, data };
         });
@@ -38,9 +37,8 @@ export class ContactService implements OnInit {
 
   addItem(contact: Contact) {
     var data = JSON.parse(JSON.stringify(contact));
-    console.log(data);
-   this.contactRef.add(data)
-   .then(_ => this.toastr.success("Message Sent", data.email))
+    this.contactRef.add(data)
+    .then(_ => this.toastr.success("Message Sent", data.email))
     .catch(_ => this.toastr.error("Cannot Send Message"));
     
   }
