@@ -1,6 +1,6 @@
 #ignore env
 !/environments
-/environments/
+src/environments/
 environments/
 
 #ignore modules
