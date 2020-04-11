@@ -18,7 +18,7 @@ export class MyFitnessComponent implements OnInit {
   public email;
   public noProfile = true;
   public profile: Profile = new Profile(null, null, null, null, null, null,null, null, null, null, null, [], null, null, [], [], null, 
-    null, null, null, null, false);
+    null, null, null, null, false, new Date);
   public bmi: BMI = new BMI(null, null, null, null)
   public output;
   public message;
@@ -69,8 +69,9 @@ export class MyFitnessComponent implements OnInit {
     window.scrollTo(0, 0)
   }
 
-  submitProfile(profile, health) {
+  submitProfile(profile: Profile, health) {
      health.filter(data => data.selected == true).map(data => {
+       this.profile.date = new Date();
         this.profile.selectedHealth.push(data.name);
     });
     

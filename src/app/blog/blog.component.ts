@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { ArticleService } from '../service/article-service.service';
 import { AuthService } from '../service/auth.service';
-import { Article } from '../article/article.model';
 
 @Component({
   selector: 'app-blog',

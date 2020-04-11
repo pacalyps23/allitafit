@@ -19,8 +19,8 @@ export class ContactComponent implements OnInit {
   constructor(private messenger:ContactService, private auth: AuthService, private slack: SlackService) { }
 
   addContact(message: Contact){
-    this.messenger.addItem(message);
-    this.slack.postContact(this.webhook, this.channel, message);
+    this.messenger.addItem(message)
+    this.slack.postContact(this.webhook, this.channel, message)
     this.reset();
   }
 

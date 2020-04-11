@@ -4,7 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDialogModule } from '@angular/material/dialog';import { NgModule } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog'; import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
 import { ContactService } from './service/contact.service';
@@ -15,7 +15,7 @@ import { EventsComponent } from './events/events.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { GalleryComponent } from './gallery/gallery.component';
 import { NgxGalleryModule } from 'ngx-gallery';
-import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
@@ -26,7 +26,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import { FormsModule, ReactiveFormsModule }  from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArticleComponent } from './article/article.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
@@ -50,28 +50,31 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { EditArticleComponent } from './edit-article/edit-article.component';
 import { DeleteArticleComponent } from './delete-article/delete-article.component';
 import { EditCalorieComponent } from './edit-calorie/edit-calorie.component';
+import { LiveTrainingComponent } from './live-training/live-training.component';
+import { environment } from '../environments/environment.prod';
 
 var firebaseConfig = {
-  apiKey: "AIzaSyAOV571ckUC5u6awW96SanIHesAmhnb6D4",
-      authDomain: "allitafit.firebaseapp.com",
-      databaseURL: "https://allitafit.firebaseio.com",
-      projectId: "allitafit",
-      storageBucket: "allitafit.appspot.com",
-      messagingSenderId: "208732271165"
+  apiKey: environment.apiKey,
+  authDomain: environment.authDomain,
+  databaseURL: environment.databaseURL,
+  projectId: environment.projectId,
+  storageBucket: environment.storageBucket,
+  messagingSenderId: environment.messagingSenderId
 };
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent,  },
+  { path: 'home', component: HomeComponent, },
   { path: 'events', component: EventsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'cardio', component: CardioComponent},
-  { path: 'my fitness', component: MyFitnessComponent},
+  { path: 'cardio', component: CardioComponent },
+  { path: 'my fitness', component: MyFitnessComponent },
+  { path: 'live training', component: LiveTrainingComponent },
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent,},
-  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
+  { path: 'login', component: LoginComponent, },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
 ];
 
 
@@ -100,8 +103,9 @@ const appRoutes: Routes = [
     EditArticleComponent,
     DeleteArticleComponent,
     EditCalorieComponent,
+    LiveTrainingComponent,
   ],
-  entryComponents:[
+  entryComponents: [
     EditEventComponent,
     EditArticleComponent,
     DeleteArticleComponent,
@@ -128,15 +132,15 @@ const appRoutes: Routes = [
     TabModule,
     ChartsModule,
     MatDialogModule,
-    MatInputModule, 
-    MatButtonModule, 
-    MatCardModule, 
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'},
+    { provide: APP_BASE_HREF, useValue: '/' },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    AuthService, ArticleService, AuthGuard, GalleryService, 
+    AuthService, ArticleService, AuthGuard, GalleryService,
     ContactService, MyChartComponent, EventService
   ],
   bootstrap: [AppComponent]

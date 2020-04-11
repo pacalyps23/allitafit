@@ -43,4 +43,19 @@ export class SlackService {
       }
       this.http.post(webhook, message, options).subscribe();
   }
+
+  postProfile(webhook, channel, email: string){
+    const options = {
+      headers: new HttpHeaders(
+        { 'Content-Type': 'application/x-www-form-urlencoded' }
+      )};
+
+      const message = {
+        channel: channel,
+        username: this.bot,
+        text: `${email} has created a profile!`,
+        icon_emoji: 'mailbox'
+      }
+      this.http.post(webhook, message, options).subscribe();
+  }
 }

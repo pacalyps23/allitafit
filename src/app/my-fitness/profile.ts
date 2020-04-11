@@ -21,10 +21,11 @@ export class Profile {
     discipline: string;
     together: string;
     info: boolean = false;
+    date: Date;
 
     constructor(fname: string, lname: string, dob: Date, sex: string, email: string, phone:string, activity: string, avgWeight: number,
         diet: string, exercise: string, program: string, selectedHealth: Array<string>, other: string, goals: string, reachGoals: Array<string>, 
-        steps: Array<string>, time: string, notRecommended: string, meds: string, discipline: string, together: string, info: boolean){
+        steps: Array<string>, time: string, notRecommended: string, meds: string, discipline: string, together: string, info: boolean, date?: Date){
         this.email = email;
         this.fname = fname;
         this.lname = lname;
@@ -47,5 +48,6 @@ export class Profile {
         this.discipline = discipline;
         this.together = together;
         this.info = info;
+        this.date = date;
     }
 }
