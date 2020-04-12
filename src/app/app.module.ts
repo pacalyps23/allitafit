@@ -52,6 +52,8 @@ import { DeleteArticleComponent } from './delete-article/delete-article.componen
 import { EditCalorieComponent } from './edit-calorie/edit-calorie.component';
 import { LiveTrainingComponent } from './live-training/live-training.component';
 import { environment } from '../environments/environment.prod';
+import { MembershipComponent } from './membership/membership.component';
+import { AuthGuardUser } from './service/auth-guard-user.service';
 
 var firebaseConfig = {
   apiKey: environment.apiKey,
@@ -69,12 +71,13 @@ const appRoutes: Routes = [
   { path: 'testimonials', component: TestimonialsComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'cardio', component: CardioComponent },
-  { path: 'my fitness', component: MyFitnessComponent },
-  { path: 'live training', component: LiveTrainingComponent },
+  { path: 'cardio', component: CardioComponent, canActivate: [AuthGuardUser] },
+  { path: 'my fitness', component: MyFitnessComponent, canActivate: [AuthGuardUser] },
+  { path: 'live training', component: LiveTrainingComponent, canActivate: [AuthGuardUser]  },
   { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent, },
+  { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
+  { path: 'membership', component: MembershipComponent }
 ];
 
 
@@ -104,6 +107,7 @@ const appRoutes: Routes = [
     DeleteArticleComponent,
     EditCalorieComponent,
     LiveTrainingComponent,
+    MembershipComponent,
   ],
   entryComponents: [
     EditEventComponent,

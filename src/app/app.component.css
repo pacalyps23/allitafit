@@ -15,6 +15,7 @@
 
 .is-active {
     border-bottom: 2px solid white;
+    font-weight: bold;
 }
 
 .bootsrap-header {
@@ -27,5 +28,10 @@
 
 a{
     text-shadow: -1px 1px black;
+}
+
+.dropdown-menu{
+    min-width: 12rem;
+    background-color: transparent;
 }
   
