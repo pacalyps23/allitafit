@@ -3,7 +3,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 import { Profile } from '../my-fitness/profile';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-//import { e } from '@angular/core/src/render3';
+import { SlackService } from './slack.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +12,11 @@ export class ProfileService {
   profileRef: AngularFirestoreCollection<Profile>;
   profiles: any;
   profile: Observable<any>;
+  private webhook = "https://hooks.slack.com/services/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";
+  private channel = "profile"
 
-  constructor(private db: AngularFirestore, private toastr: ToastrService) {
-    this.profileRef = this.db.collection('profile', ref => ref.orderBy('lname'));
+  constructor(private db: AngularFirestore, private toastr: ToastrService, private slack: SlackService) {
+    this.profileRef = this.db.collection('profile', ref => ref.orderBy('date').orderBy('lname'));
    }
 
    getAllProfiles(): any {
@@ -33,6 +35,7 @@ export class ProfileService {
      this.profileRef.add(data)
       .then(_=> this.toastr.success("Profile Created!"))
       .catch(_=> this.toastr.error("Cannot Create Profile"));
+      this.slack.postProfile(this.webhook, this.channel, profile.email);
    }
 
    getProfile(email): any {

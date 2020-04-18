@@ -23,6 +23,7 @@ export class SingleEventComponent implements OnInit {
   mobileWidth;
   private webhook: string = 'https://hooks.slack.com/services/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';
   private channel: string = 'events';
+  private url: any;
   
   constructor(private auth: AuthService, private profileService: ProfileService,
     private eventService: EventService, private toastr: ToastrService,
@@ -70,6 +71,12 @@ export class SingleEventComponent implements OnInit {
       this.slack.postEvent(this.webhook, this.channel, this.user, eventTitle);
     }
     
+  }
+
+  embedUrl(link: string){
+    console.log(link);
+    var data = "https://www.youtube.com/embed/"+ link
+    this.url = this.sanitizer.bypassSecurityTrustResourceUrl(data);
   }
 
 
