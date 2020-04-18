@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   myCarouselOptions={items: 3, dots: true, nav: true};
   public mobileWidth;
   public mobileMarg;
+  public active: boolean;
 
   constructor(private sanitizer: DomSanitizer, private auth: AuthService) { 
     this.mySlideImages = [
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
       this.mobileWidth = { "width": "900px",};
       this.mobileMarg = { "margin": "20px"};
     }
+    this.active = this.auth.isLoggedIn();
   }
 
 }
