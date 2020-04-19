@@ -54,6 +54,7 @@ import { LiveTrainingComponent } from './live-training/live-training.component';
 import { environment } from '../environments/environment.prod';
 import { MembershipComponent } from './membership/membership.component';
 import { AuthGuardUser } from './service/auth-guard-user.service';
+import { TestimonialModelComponent } from './testimonial-model/testimonial-model.component';
 
 var firebaseConfig = {
   apiKey: environment.apiKey,
@@ -108,6 +109,7 @@ const appRoutes: Routes = [
     EditCalorieComponent,
     LiveTrainingComponent,
     MembershipComponent,
+    TestimonialModelComponent,
   ],
   entryComponents: [
     EditEventComponent,

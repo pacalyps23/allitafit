@@ -10,7 +10,7 @@ import { Profile } from 'selenium-webdriver/firefox';
 import { EventService } from '../service/event-service.service';
 import { Event } from '../single-event/event.model';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { MatDialog, MatDialogConfig } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditEventComponent } from '../edit-event/edit-event.component';
 import { EditArticleComponent } from '../edit-article/edit-article.component';
 import { DeleteArticleComponent } from '../delete-article/delete-article.component';

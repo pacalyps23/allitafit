@@ -1,0 +1,24 @@
+<div class="card mb-3">
+    <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
+
+      <div class="item itemCenter" *ngFor="let image of testimonial.images">
+        <div class="thumbnail-image">
+          <div *ngIf="isValid(image)">
+            <img src={{image}} class="img-responsive img-rounded">
+          </div>
+          <div *ngIf="!isValid(image)">
+            <iframe class="img-rounded" width="1000px" height="700px" style="text-align: center;" [src]="image"
+              frameborder="0" allow="accelerometer; 
+            autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </owl-carousel>
+    <div class="card-body">
+      <h2 class="card-title myh2">{{testimonial.title}}</h2>
+      <p class="card-text pIndent">{{testimonial.description}}</p>
+    </div>
+    <div class="card-footer text-muted">
+       {{testimonial.date}}
+      </div>
+  </div>
