@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryLayout } from 'ngx-gallery';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation, NgxGalleryLayout } from 'ngx-gallery-9';
 import { GalleryService } from '../service/gallery.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { AuthService } from '../service/auth.service';

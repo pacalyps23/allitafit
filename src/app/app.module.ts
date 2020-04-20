@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,7 +13,7 @@ import { FooterComponent } from './footer/footer.component';
 import { EventsComponent } from './events/events.component';
 import { OwlModule } from 'ngx-owl-carousel';
 import { GalleryComponent } from './gallery/gallery.component';
-import { NgxGalleryModule } from 'ngx-gallery';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
@@ -134,7 +133,7 @@ const appRoutes: Routes = [
     NgxGalleryModule,
     ScrollToModule.forRoot(),
     ToastrModule.forRoot({ toastClass: 'toast toast-bootstrap-compatibility-fix' }),
-    BrowserAnimationsModule,
+    //BrowserAnimationsModule,
     TabModule,
     ChartsModule,
     MatDialogModule,
