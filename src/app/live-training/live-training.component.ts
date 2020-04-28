@@ -17,8 +17,7 @@ export class LiveTrainingComponent implements OnInit {
   public iframe;
 
   constructor(private linkService: LinkService, private sanitizer: DomSanitizer, private auth: AuthService) {
-    this.link = this.linkService.getLinks();
-    console.log(this.link);
+    this.link = this.linkService.getLinks();    
   }
 
 

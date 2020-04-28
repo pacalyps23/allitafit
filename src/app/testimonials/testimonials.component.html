@@ -23,50 +23,6 @@
         </div>
       </div>
 
-      <!-- 
-
-      <div class="card mb-3">
-        <owl-carousel [options]="myCarouselOptions" [carouselClasses]="['owl-theme', 'sliding']">
-          <div class="item" *ngFor="let image of tracyPics">
-            <div class="thumbnail-image">
-              <div *ngIf="isValid(image)">
-                <img class="card-img-top" src={{image}} class="img-responsive">
-              </div>
-              <div *ngIf="!isValid(image)">
-                <iframe class="img" [src]="image" frameborder="0" allow="accelerometer; 
-                          autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-            </div>
-          </div>
-        </owl-carousel>
-        <div class="card-body">
-          <h2 class="card-title myh2">Tracy</h2>
-          <p class="card-text">
-            <b>"</b>At first, I was hesitant to invest money in a personal trainer. I believed maybe I
-            could push myself harder to achieve what I wanted. I didn’t know what
-            to expect when I asked for a consultation with Alla. Forward to the present, I’ve worked with Alla for
-            almost 10 months, and I’ve had amazing results. My BMI, fat, weight have
-            all reduced, my posture is better, my body looks more toned. I now walk with confidence and my clothes feel
-            better. Alla radiates positivity, patience, passion for physical
-            training and nutrition, and with the technical savvy that gave me results. From the smallest corrections of
-            proper body mechanics, and explaining objectives of an exercise,
-            I got much better results with the same exercise under her guidance, as I did before I worked out with her!
-            There hasn’t been a day I worked out with her, that her positivity
-            wasn’t infectious. No matter what was going on that day, I left my work out smiling. She got to know me well
-            enough to customize my workouts to me. She paid attention to what
-            level of a challenge I required, in combination with my physical limitations (below average balance, and
-            knee issues), she even customized the time of the day of our training
-            schedule to my preferences. Unfortunately, she had to move, but she earns all the credit in me forming the
-            healthy habit of exercising regularly, even without her.
-
-            I’ve used multiple personal trainers in the past, and worked in a gym, and she’s the very best I’ve
-            personally used and witnessed. There is no hesitation in my recommendation of Alla as a personal trainer.
-            The only regret you will have is not having started training with her sooner".
-          </p>
-
-        </div>
-      </div> -->
-
       <div>
         <testimonial-model *ngFor="let test of testimonials" [testimonial]="test"></testimonial-model>
       </div>

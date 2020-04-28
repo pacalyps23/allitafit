@@ -1,59 +1,15 @@
-.thumbnail-image {
-    padding: 10px;
+.itemCenter{
+    margin-right: 14%;
+    margin-left: 14%;
+    border-radius: 10px;
+    margin-top: 0.75rem;
 }
 
-.row {
-    display: block;  
+.myText{
+    font-size: larger !important;
+    color: dimgray;
 }
 
-.rowProp{
-    border: 1px;
-    border-style: solid;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: white;
-}
-
-.pIndent{
-    text-indent: 15px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.container {
-    max-width: 1514px;
-}
-
-.back1{
-    background-color: aliceblue;
-}
-
-.myTitle{
-    color: rosybrown;
-    text-shadow: -5px 6px darkmagenta;
-}
-
-.testi{
-    padding: 20px;
-}
-
-.myh2{
-    text-align: center;
-}
-
-.img-rounded{
-    border: 2px black;
-    border-style: solid;
-}
-
-
-.itemCenter {
-    text-align: center;
-    margin: auto;
-    width: 1000px;
-    height: 700px;
-}
-
-.card-body {
-    background-color: thistle;
+.myBody{
+    background-color: lavenderblush;
 }
