@@ -109,7 +109,6 @@ export class AdminComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data != undefined || data != null) {
-        console.log(data);
         this.eventService.updateEvent(event.id, data);
       }
     });
