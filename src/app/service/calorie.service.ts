@@ -32,20 +32,21 @@ export class CalorieService {
    addCalories(calorie: Calorie){
      var data = JSON.parse(JSON.stringify(calorie));
      this.calorieRef.add(data).then(_=> this.toastr.success("Calories Submitted"))
-     .catch(_=> this.toastr.error("Cannot Send Calories"));
+     .catch(err => this.toastr.error(`Cannot Send Calories: ${err}`));
    }
 
    getCalorie(email): Observable<any> {
-      return this.db.collection('calorie', ref => ref.where('name', '==', email) ).valueChanges();
+      return this.db.collection('calorie', ref => ref.where('name', '==', email) ).valueChanges()
+        .catch(err => `Error getting user calories because ${err}`);
    }
 
    deleteCalorie(postId){
      this.db.collection('calorie').doc(postId).delete().then(_ => this.toastr.success("Delete Article"))
-     .catch(_=> this.toastr.error("Could not Delete"));
+     .catch(err => this.toastr.error(`Could not Delete: ${err}`));
    }
 
    updateCalorie(calorie, id){
-     this.db.collection('calorie').doc(id).update(calorie).catch(_=> this.toastr.error("Eror Updating"))
-     .then(_=> this.toastr.success("Updated Successfully"));
+     this.db.collection('calorie').doc(id).update(calorie).then(_=> this.toastr.success("Updated Successfully"))
+     .catch(err => this.toastr.error(`Error Updating: ${err}`));
    }
 }
