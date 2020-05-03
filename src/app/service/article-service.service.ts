@@ -18,11 +18,9 @@ export class ArticleService implements OnInit {
   }
 
   ngOnInit() {
-    //this.articles = this.getArticles();
   }
 
   getArticles(): any {
-    //this.articleRef = this.db.collection('article');
     return this.articleRef.snapshotChanges()
       .map(actions => {
         return actions.map(a => {
@@ -37,7 +35,8 @@ export class ArticleService implements OnInit {
   addItem(article: Article) {
     var data = JSON.parse(JSON.stringify(article));
     console.log('adding item');
-    this.articleRef.add(data).then(_ => alert("Added Article"));
+    this.articleRef.add(data).then(_ => alert("Added Article"))
+      .catch(err => `Error adding user: ${err}`)
   }
 
   updateItem(postId, article) {
@@ -47,11 +46,13 @@ export class ArticleService implements OnInit {
   }
 
   getItem(postId): Observable<any> {
-    return this.db.collection('article').doc(postId).valueChanges();
+    return this.db.collection('article').doc(postId).valueChanges()
+      .catch(err => `Error getting item ${postId} because ${err}`);
   }
 
   deleteItem(postId): void {
-    this.db.collection('article').doc(postId).delete().then(_ => alert("Delete Article"));
+    this.db.collection('article').doc(postId).delete().then(_ => alert("Delete Article"))
+      .catch(err => `Error deleting article with Id: ${postId} because ${err}`);
   }
 
 }

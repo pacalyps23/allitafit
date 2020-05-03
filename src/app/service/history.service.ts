@@ -21,10 +21,11 @@ export class HistoryService {
      var data = JSON.parse(JSON.stringify(history));
      this.historyRef.add(data)
       .then(_=> this.tostr.success("Weight has been added"))
-      .catch(_=> this.tostr.error("Error adding weight"));
+      .catch(err => this.tostr.error(`Error adding weight: ${err}`));
    }
 
    getHistory(email): Observable<any> {
-      return this.db.collection('history', ref => ref.where('email', '==', email)).valueChanges();
+      return this.db.collection('history', ref => ref.where('email', '==', email)).valueChanges()
+        .catch(err => `Error getting user history: ${err}`);
    }
 }
