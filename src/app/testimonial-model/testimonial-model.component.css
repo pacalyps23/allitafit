@@ -10,6 +10,47 @@
     color: dimgray;
 }
 
-.myBody{
+.rowProp{
+    border: 1px;
+    border-style: solid;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.pIndent{
+    text-indent: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: monospace;
+}
+
+.container {
+    max-width: 1514px;
+}
+
+.back1{
+    background-color: aliceblue;
+}
+
+.myTitle{
+    color: rosybrown;
+    text-shadow: -5px 6px darkmagenta;
+}
+
+.testi{
+    padding: 20px;
+}
+
+.myh2{
+    text-align: center;
+}
+
+.img-rounded{
+    border: 2px black;
+    border-style: solid;
+}
+
+.card-body {
     background-color: lavenderblush;
 }

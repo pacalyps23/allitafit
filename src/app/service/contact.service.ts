@@ -39,16 +39,18 @@ export class ContactService implements OnInit {
     var data = JSON.parse(JSON.stringify(contact));
     this.contactRef.add(data)
     .then(_ => this.toastr.success("Message Sent", data.email))
-    .catch(_ => this.toastr.error("Cannot Send Message"));
+    .catch(err => this.toastr.error(`Cannot Send Message: ${err}`));
     
   }
 
   getItem(postId): Observable<any> {
-    return this.db.collection('contacts').doc(postId).valueChanges();
+    return this.db.collection('contacts').doc(postId).valueChanges()
+      .catch(err => `Error getting contacts: ${err}`)
   }
 
   deleteItem(postId): void {
-    this.db.collection('contacts').doc(postId).delete().then(_ => alert("Delete Article"));
+    this.db.collection('contacts').doc(postId).delete().then(_ => alert("Delete Article"))
+      .catch(err => `Error deleting contact: ${err}`)
   }
 
 
