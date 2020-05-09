@@ -27,4 +27,8 @@ export class EditCalorieComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  trackByIndex(index: number, obj: any): any {
+    return index;
+  }
+
 }

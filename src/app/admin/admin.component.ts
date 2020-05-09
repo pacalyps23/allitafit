@@ -33,10 +33,10 @@ export class AdminComponent implements OnInit {
   public articles: Array<Article>;
   public calorie = new Calorie(
     null,
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null],
-    [null, null, null, null, null, null, null, null, null],
+    new Array<Number>(null, null, null, null, null, null, null, null, null, null),
+    new Array<Number>(null, null, null, null, null, null, null),
+    new Array<Number>(null, null, null, null, null, null, null),
+    new Array<Number>(null, null, null, null, null, null, null),
     0, 0, 0, 0)
 
   // Main task 
