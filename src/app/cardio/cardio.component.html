@@ -6,19 +6,19 @@
         <div class="col-md-7 probootstrap-intro-text">
           <h1 data-animate-effect="fadeIn" class="myTitle">Cardio Challenge</h1>
           <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
-            <h2 style="color:tomato; text-shadow: 2px 2px brown">Stronger Together</h2>
+            <h2 style="color:tomato; text-shadow: 2px 2px brown">Step by Step</h2>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="container">
-    <div style="padding-top: 50px; padding-bottom: 50px;">
-      <h2 style="text-align:center">Week 1 & Week 2</h2>
+  <section>
+    <div class="myTable">
+      <h2 style="text-align:center">Week 1 & 2</h2>
       <table class="table table-striped" style="border:solid">
         <colgroup>
-          <col style="background-color:beige; font-weight:bold;">
-          <col span="7">
+          <col style="background-color:beige;">
+          <col span="10">
           <col style="background-color:skyblue">
           <col span="7">
           <col style="background-color:skyblue">
@@ -26,78 +26,77 @@
         </colgroup>
         <tr>
           <th>Participant</th>
-          <th>Jan 6</th>
-          <th>Jan 7</th>
-          <th>Jan 8</th>
-          <th>Jan 9</th>
-          <th>Jan 10</th>
-          <th>Jan 11</th>
-          <th>Jan 12</th>
+          <th>May 1</th>
+          <th>May 2</th>
+          <th>May 3</th>
+          <th>May 4</th>
+          <th>May 5</th>
+          <th>May 6</th>
+          <th>May 7</th>
+          <th>May 8</th>
+          <th>May 9</th>
+          <th>May 10</th>
           <th>Week 1</th>
-          <th>Jan 13</th>
-          <th>Jan 14</th>
-          <th>Jan 15</th>
-          <th>Jan 16</th>
-          <th>Jan 17</th>
-          <th>Jan 18</th>
-          <th>Jan 19</th>
+          <th>May 11</th>
+          <th>May 12</th>
+          <th>May 13</th>
+          <th>May 14</th>
+          <th>May 15</th>
+          <th>May 16</th>
+          <th>May 17</th>
           <th>Week 2</th>
           <th>Total</th>
         </tr>
         <tr *ngFor="let user of steps">
-            <td>{{user.name}}</td>
+            <td style="font-weight: 600;">{{user.name}}</td>
             <td *ngFor="let cardio of user.week1">{{cardio}}</td>
-            <td>{{user.week1Tot}}</td>
+            <td style="font-weight: 600;">{{user.week1Tot}}</td>
             <td *ngFor="let cardio of user.week2">{{cardio}}</td>
-            <td>{{user.week2Tot}}</td>
-            <td>{{user.half1}}</td>
+            <td style="font-weight: 600;">{{user.week2Tot}}</td>
+            <td style="font-weight: 600;">{{user.half1}}</td>
           </tr>
 
       </table>
     </div>
 
-    <div style="padding-top: 50px; padding-bottom: 50px;">
-        <h2 style="text-align:center">Week 3 & Week 4</h2>
+    <div class="myTable">
+        <h2 style="text-align:center">Week 3 & 4</h2>
         <table class="table table-striped" style="border:solid">
           <colgroup>
             <col style="background-color:beige; font-weight:bold;">
             <col span="7">
             <col style="background-color:skyblue">
-            <col span="11">
+            <col span="7">
             <col style="background-color:skyblue">
             <col style="background-color:palegreen">
           </colgroup>
           <tr>
             <th>Participant</th>
-            <th>Jan 20</th>
-            <th>Jan 21</th>
-            <th>Jan 22</th>
-            <th>Jan 23</th>
-            <th>Jan 24</th>
-            <th>Jan 25</th>
-            <th>Jan 26</th>
+            <th>May 18</th>
+            <th>May 19</th>
+            <th>May 20</th>
+            <th>May 21</th>
+            <th>May 22</th>
+            <th>May 23</th>
+            <th>May 24</th>
             <th>Week 3</th>
-            <th>Jan 27</th>
-            <th>Jan 28</th>
-            <th>Jan 29</th>
-            <th>Jan 30</th>
-            <th>Jan 31</th>
-            <th>Feb 1</th>
-            <th>Feb 2</th>
-            <th>Feb 3</th>
-            <th>Feb 4</th>
-            <th>Feb 5</th>
-            <th>Feb 6</th>
+            <th>May 25</th>
+            <th>May 26</th>
+            <th>May 27</th>
+            <th>May 28</th>
+            <th>May 29</th>
+            <th>May 30</th>
+            <th>May 31</th>
             <th>Week 4</th>
             <th>Month Total</th>
           </tr>
           <tr *ngFor="let user of steps">
-            <td>{{user.name}}</td>
+            <td style="font-weight: 600;">{{user.name}}</td>
             <td *ngFor="let cardio of user.week3">{{cardio}}</td>
-            <td>{{user.week3Tot}}</td>
+            <td style="font-weight: 600;">{{user.week3Tot}}</td>
             <td *ngFor="let cardio of user.week4">{{cardio}}</td>
-            <td>{{user.week4Tot}}</td>
-            <td>{{user.allTot}}</td>
+            <td style="font-weight: 600;">{{user.week4Tot}}</td>
+            <td style="font-weight: 600;">{{user.allTot}}</td>
 
           </tr>
         </table>
