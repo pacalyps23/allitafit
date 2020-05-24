@@ -10,27 +10,27 @@
         </div>
 
         <h3>Week 1</h3>
-        <div class="form-group" *ngFor="let day of calorie.week1; index as i">
+        <div class="form-group" *ngFor="let day of calorie.week1; let index = index; trackBy:trackByIndex;">
             <input matInput type="number" class="form-control" placeholder="Empty Calories" required
-                [(ngModel)]="calorie.week1[i]">
+                [(ngModel)]="calorie.week1[index]">
         </div>
 
         <h3>Week 2</h3>
-        <div class="form-group" *ngFor="let day of calorie.week2; index as i">
+        <div class="form-group" *ngFor="let day of calorie.week2; let index = index; trackBy:trackByIndex;">
             <input matInput type="number" class="form-control" placeholder="Empty Calories" required
-                [(ngModel)]="calorie.week2[i]">
+                [(ngModel)]="calorie.week2[index]">
         </div>
 
         <h3>Week 3</h3>
-        <div class="form-group" *ngFor="let day of calorie.week3; index as i">
+        <div class="form-group" *ngFor="let day of calorie.week3; let index = index; trackBy:trackByIndex;">
             <input matInput type="number" class="form-control" placeholder="Empty Calories" required
-                [(ngModel)]="calorie.week3[i]">
+                [(ngModel)]="calorie.week3[index]">
         </div>
 
         <h3>Week 4</h3>
-        <div class="form-group" *ngFor="let day of calorie.week4; index as i">
+        <div class="form-group" *ngFor="let day of calorie.week4; let index = index; trackBy:trackByIndex;">
             <input matInput type="number" class="form-control" placeholder="Empty Calories" required
-                [(ngModel)]="calorie.week4[i]">
+                [(ngModel)]="calorie.week4[index]">
         </div>
     </mat-card-content>
     <mat-card-actions>
