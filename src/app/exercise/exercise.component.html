@@ -1,1 +1,30 @@
-<p>this works</p>
+<div [ngStyle]="mobileWidth">
+    <section class="probootstrap-intro probootstrap-intro-inner"
+      style="background-image: url(../../assets/img/programs.jpg);" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 probootstrap-intro-text">
+            <h1 data-animate-effect="fadeIn" class="fitTitle">Exercises</h1>
+            <div class="probootstrap-subtitle" data-animate-effect="fadeIn">
+              <h2 style="text-shadow:2px 2px darkred; color: orangered">No Pain, No Gain</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <section>
+      <mat-tab-group>
+        <mat-tab label = "Legs">
+          <ng-template matTabContent>
+            <div *ngFor="let exercise of exercises;">
+              <button (click)="getExercise(exercise)">{{exercise.name}}</button>
+          </div>
+          </ng-template>
+          </mat-tab>
+        <mat-tab label = "B"> Banana </mat-tab>
+        <mat-tab label = "C"> Carrot </mat-tab>
+     </mat-tab-group>
+    </section>
+    
+</div>
