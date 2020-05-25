@@ -173,18 +173,16 @@
 
         <div class="row">
           <div *ngIf="!noProfile" style="text-align:center" class="col-3">
-            <form #historyForm="ngForm" (ngSubmit)="submitWeight(historyForm.form);">
               <label for="weight">Enter Today's Weight</label>
-              <input type="text" class="form-control" name="weight" ngModel #nameField="ngModel" required minlength="2">
-              <button class="btn btn-success" [disabled]="!historyForm.valid">Submit Weight</button>
-            </form>
+              <input type="number" id="weight" name="weight" [(ngModel)]="weight">
+              <button type="submit" class="btn btn-primary" (click)="submitWeight(weight)">Submit Weight</button>
           </div>
           <div *ngIf="noProfile" style="text-align:center" class="col-3">
             <h3>Create your profile to begin trakcing your weight</h3>
           </div>
 
           <div class="col-8">
-            <app-my-chart></app-my-chart>
+            <app-my-chart [profile]="profile"></app-my-chart>
           </div>
         </div>
 
@@ -230,7 +228,6 @@
           </div>
 
         </div>
-        <
 
       </div>
     </section>

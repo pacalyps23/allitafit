@@ -3,9 +3,8 @@ import { AuthService } from '../service/auth.service';
 import { Profile } from './profile';
 import { ProfileService } from '../service/profile.service';
 import { BMI } from './bmi';
-import { History } from './history';
-import { HistoryService } from '../service/history.service';
 import { MyChartComponent } from '../my-chart/my-chart.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -15,14 +14,15 @@ import { MyChartComponent } from '../my-chart/my-chart.component';
 })
 export class MyFitnessComponent implements OnInit {
   public mobileWidth;
+  public id;
   public email;
   public noProfile = true;
   public profile: Profile = new Profile(null, null, null, null, null, null,null, null, null, null, null, [], null, null, [], [], null, 
-    null, null, null, null, false, new Date);
+    null, null, null, null, false, new Date, new Array<any>());
   public bmi: BMI = new BMI(null, null, null, null)
   public output;
   public message;
-  public history: History = new History(null, null, null);
+  public weight;
   public health: Array<any> = [
     { "name": "High Blood Pressure", "selected": false}, 
     { "name": "Asthma", "selected": false},
@@ -43,8 +43,9 @@ export class MyFitnessComponent implements OnInit {
     { "name": "Medications", "selected": false},
   ];
 
-  constructor(private auth: AuthService, private profileService: ProfileService, private histService: HistoryService,
-    private myChart: MyChartComponent) {
+  constructor(private auth: AuthService, private profileService: ProfileService,
+    private myChart: MyChartComponent, private toastr: ToastrService) {
+    
     if (auth.isMobile()) {
       this.mobileWidth = { "width": "900px" }
     }
@@ -52,11 +53,11 @@ export class MyFitnessComponent implements OnInit {
 
     profileService.getProfile(this.email).subscribe(data => {
       try{
-         if (data[0].fname != null) {
-          this.profile = data[0];
+         if (data[0].data.fname != null) {
+          this.profile = data[0].data;
+          this.id = data[0].id;
           this.noProfile = false;
-          this.getHistory(this.email);
-        }
+       }
       }catch{
         console.log("No user found");
       }
@@ -106,23 +107,26 @@ export class MyFitnessComponent implements OnInit {
       this.message = "Obsese";
   }
 
-  getHistory(email){
-    this.histService.getHistory(email).subscribe(data =>{
-      if(data != null){
-        this.history = data;
-        this.myChart.email = this.email;
-      }
-    });
-  }
-
-  submitWeight(form){
-    this.history = {
-      email: this.email,
-      date: new Date,
-      weight: form.value.weight
+  submitWeight(weight: any){
+    if(isNaN(weight)){
+      this.toastr.error("<h4>Weight must be a number!</h4>", "ERROR", 
+      { closeButton: true, enableHtml: true });
+      this.weight = null;
+      return;
     }
-    this.histService.addHistory(this.history);
-    
+    var history = {
+      date: new Date().toISOString(),
+      weight: weight
+    }
+    if(this.profile.history[0] == null){
+      
+      this.profile.history[0] = history;
+    }
+    else{
+      this.profile.history.push(history);
+    }
+    this.profileService.editProfile(this.profile, this.id);
+    this.weight = null;
   }
 
 

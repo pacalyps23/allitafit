@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { HistoryService } from '../service/history.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ProfileService } from '../service/profile.service';
 import { AuthService } from '../service/auth.service';
-//import { element } from '@angular/core/src/render3/instructions';
+import { Profile } from '../my-fitness/profile';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-my-chart',
@@ -9,10 +10,11 @@ import { AuthService } from '../service/auth.service';
   styleUrls: ['./my-chart.component.css']
 })
 export class MyChartComponent implements OnInit {
+  @Input() profile: Profile;
   public myHistory;
   public email;
 
-  constructor(private historyService: HistoryService, private auth: AuthService) {
+  constructor(private profileService: ProfileService, private auth: AuthService) {
     this.email = auth.getUser().email;
    }
 
@@ -21,10 +23,6 @@ export class MyChartComponent implements OnInit {
     responsive: true,
     scales: {
       yAxes: [{
-        ticks: {
-          suggestedMin: 120,
-          suggestedMax: 200
-        },
         scaleLabel: {
           display: true,
           labelString: 'Weight'
@@ -51,17 +49,23 @@ export class MyChartComponent implements OnInit {
 
   getMyChart(){
     try{
-      this.historyService.getHistory(this.email).subscribe(data => {
-      data.map(element => {
-        var formatDate = element.date.split('T')[0];
-        this.barChartLabels.push(formatDate);
-        this.barChartData[0].data.push(element.weight);
-      });
+      this.profileService.getProfile(this.email).subscribe(profile => {  
+        if(profile[0].data.history[0] == null){
+          console.log("No History Found");
+          console.log(profile[0].data.history)
+        }
+        else{
+          profile[0].data.history.map(element => {
+            var formatDate = element.date.split('T')[0];
+            this.barChartLabels.push(formatDate);
+            this.barChartData[0].data.push(element.weight);        
+          });
+        }
     });
     }catch{
       console.log("No History Found");
     }
-    
   }
+    
 
 }
