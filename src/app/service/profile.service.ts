@@ -39,7 +39,20 @@ export class ProfileService {
    }
 
    getProfile(email): any {
-     return this.db.collection('profile', ref => ref.where('email', '==', email)).valueChanges();
+     let doc = this.db.collection('profile', ref => ref.where('email', '==', email));
+     return doc.snapshotChanges().map(action => {
+       return action.map(a => {
+         const data = a.payload.doc.data() as Profile;
+         data.info = false;
+         const id = a.payload.doc.id;
+         return { id, data }
+       });
+     });
+   }
+
+   editProfile(profile: Profile, id){
+    this.db.collection('profile').doc(id).update(profile).then(_=> this.toastr.success("Updated Successfully"))
+     .catch(err => this.toastr.error(`Error Updating: ${err}`));
    }
 
 }

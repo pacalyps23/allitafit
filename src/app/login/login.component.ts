@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
       this.authService.signInWithFacebook()
       .then((res) => {
           location.reload();
+          this.router.navigate(['/home']);
         })
       .catch((err) => console.log(err));
     }
@@ -41,7 +42,7 @@ export class LoginComponent implements OnInit {
     signInWithGoogle() {
       this.authService.signInWithGoogle()
       .then((res) => {
-          location.reload();
+          this.router.navigate(['/home']);
         })
       .catch((err) => console.log(err));
     }
