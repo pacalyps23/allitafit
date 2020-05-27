@@ -10,6 +10,7 @@ import { Testimonial } from '../testimonial-model/testimonial.model';
   styleUrls: ['./testimonials.component.css']
 })
 export class TestimonialsComponent implements OnInit {
+  sortedTestimonials: Array<Testimonial> = new Array();
   testimonials: Array<any> = new Array<any>();
   ama: Testimonial;
   chet: Testimonial;
@@ -22,6 +23,7 @@ export class TestimonialsComponent implements OnInit {
   pavithra: Testimonial;
   simone: Testimonial;
   tracy: Testimonial;
+  sara: Testimonial;
 
   amaPics = [];
   chetPics = [];
@@ -34,6 +36,7 @@ export class TestimonialsComponent implements OnInit {
   pavPics = [];
   simonePics = [];
   tracyPics = [];
+  saraPics = [];
   mobileWidth;
 
   constructor(private sanitizer: DomSanitizer, private auth: AuthService) {
@@ -77,6 +80,10 @@ export class TestimonialsComponent implements OnInit {
 
     for(var i = 2; i < 3; i++){
       this.tracyPics.push(`../../assets/img/tracy/tracy${i}.jpg`);
+    }
+
+    for(var i = 1; i < 4; i++){
+      this.saraPics.push(`../../assets/img/sara/sara${i}.jpg`);
     }
 
     this.amaPics.push(sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/UeAjr2p25po"));
@@ -177,8 +184,20 @@ export class TestimonialsComponent implements OnInit {
     she’s the very best I’ve personally used and witnessed. There is no hesitation in my recommendation of Alla as a personal \
     trainer. The only regret you will have is not having started training with her sooner.", new Date(2017, 3, 22));
 
+    this.sara = new Testimonial(this.saraPics, "Sara", "I have had such a positive experience working with Alla these past few months.\
+     I have always struggled with inconsistency in dieting and working out but since I’ve met Alla, I have been able to incorporate\
+     these things into my normal lifestyle. I’ve been able to see results quickly but in a way that is healthy and productive that\
+     will last long term. Since working out with Alla, I have lost fat, decreased my BMI, gained muscle and most importantly,\
+     I have stayed consistent and made healthier choices. The best part of it all is that I actually look forward to our workouts,\
+    which I never thought in a million years I would say. But Alla is such a joy to be around- she has a great positive energy,\
+    she’s kind, focused, patient, knowledgeable and the best cheerleader. She truly goes above and beyond for her clients. Not\
+    only does she come up with specific individual workout plans, she also holds nutrition seminars, organizes fun boot camps\
+    and comes up with monthly competitions for us as extra motivation. From the beginning, Alla has made it clear she wanted\
+    me to reach the goals I had set out for myself and her support, motivation and passion makes it easier to reach those goals.\
+    She has made such a positive impact on my life in the short time I’ve known her and I’m so grateful to her for that! Highly highly recommend!", new Date(2020, 4, 19));
+
     this.testimonials.push(this.ama, this.bruce, this.chet, this.india, this.kiki, this.metty, this.naomi, 
-      this.pavithra, this.simone, this.tracy);
+      this.pavithra, this.simone, this.tracy, this.sara);
     
   }
 
@@ -186,6 +205,7 @@ export class TestimonialsComponent implements OnInit {
     if(this.auth.isMobile()){
       this.mobileWidth = { "width": "900px"}
     }
+    this.testimonials.sort((a: any, b:any) => b.date - a.date);
   }
 
 }

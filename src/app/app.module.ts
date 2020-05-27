@@ -4,6 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog'; import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy, APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http'
@@ -55,6 +56,8 @@ import { environment } from '../environments/environment.prod';
 import { MembershipComponent } from './membership/membership.component';
 import { AuthGuardUser } from './service/auth-guard-user.service';
 import { TestimonialModelComponent } from './testimonial-model/testimonial-model.component';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
 
 var firebaseConfig = {
   apiKey: environment.apiKey,
@@ -78,7 +81,8 @@ const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
-  { path: 'membership', component: MembershipComponent }
+  { path: 'membership', component: MembershipComponent },
+  { path: 'exercises', component: ExerciseComponent }
 ];
 
 
@@ -119,6 +123,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MDBBootstrapModule.forRoot(),
     OwlModule,
     NgbModule,
     AngularFireModule.initializeApp(firebaseConfig),
@@ -142,6 +147,7 @@ const appRoutes: Routes = [
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
+    MatTabsModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
