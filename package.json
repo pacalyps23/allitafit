@@ -33,6 +33,7 @@
     "@types/jquery": "^3.3.35",
     "acorn": "^7.1.1",
     "add": "^2.0.6",
+    "angular-bootstrap-md": "^9.1.0",
     "angular-tabs-component": "^1.0.6",
     "chart.js": "^2.9.3",
     "core-js": "^3.6.5",
