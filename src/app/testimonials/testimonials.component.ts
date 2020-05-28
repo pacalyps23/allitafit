@@ -196,8 +196,8 @@ export class TestimonialsComponent implements OnInit {
     me to reach the goals I had set out for myself and her support, motivation and passion makes it easier to reach those goals.\
     She has made such a positive impact on my life in the short time I’ve known her and I’m so grateful to her for that! Highly highly recommend!", new Date(2020, 4, 19));
 
-    this.testimonials.push(this.ama, this.bruce, this.chet, this.india, this.kiki, this.metty, this.naomi, 
-      this.pavithra, this.simone, this.tracy, this.sara);
+    this.testimonials.push(this.naomi, this.bruce,this.sara, this.ama, this.chet, this.india, this.kiki, this.metty, 
+      this.pavithra, this.simone, this.tracy);
     
   }
 
@@ -205,7 +205,7 @@ export class TestimonialsComponent implements OnInit {
     if(this.auth.isMobile()){
       this.mobileWidth = { "width": "900px"}
     }
-    this.testimonials.sort((a: any, b:any) => b.date - a.date);
+    //this.testimonials.sort((a: any, b:any) => b.date - a.date);
   }
 
 }
